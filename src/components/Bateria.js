@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   },
   titulo:{
     fontSize: 30,
-    margin: 'auto',
+    marginHorizontal: 'auto',
   },
   bateria:{
     borderWidth: 2,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: '50%',
     margin: 'auto',
-    marginVertical: 30,
+    // marginVertical: 30,
     // backgroundColor: '#000'
   },
   textoNivel:{
