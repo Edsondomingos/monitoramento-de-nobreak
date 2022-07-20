@@ -9,15 +9,15 @@ const Stack = createNativeStackNavigator()
 export default function app(){
     return (
         <NavigationContainer>
-        <Stack.Navigator initialRouteName="" screenOptions={{headerShown: true}} >
-        <Stack.Screen name="" component={''} options={{ title: '',
+        <Stack.Navigator initialRouteName="Bateria" screenOptions={{headerShown: true}} >
+        <Stack.Screen name="Bateria" component={Bateria} options={{ title: 'Bateria',
               headerStyle: {
               backgroundColor: 'green', }, headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
             },
               }} />
-        <Stack.Screen name="Bateria" component={Bateria} options={{ title: 'Bateria',
+        {/*<Stack.Screen name="Bateria" component={Bateria} options={{ title: 'Bateria',
               headerStyle: {
               backgroundColor: 'green', }, headerTintColor: '#fff',
             headerTitleStyle: {
@@ -28,7 +28,7 @@ export default function app(){
               backgroundColor: 'green', }, headerTintColor: '#fff',
             headerTitleStyle: {
               fontWeight: 'bold',
-            }, }} />
+            }, }} /> */}
         </Stack.Navigator>
       </NavigationContainer>
     );
