@@ -1,11 +1,8 @@
-# Sample Snack app
+# Projeto Integrador II - Sistemas para Internet Canguaretama
 
-Open the `App.js` file to start writing some code. You can preview the changes directly on your phone or tablet by scanning the **QR code** or use the iOS or Android emulators. When you're done, click **Save** and share the link!
 
-When you're ready to see everything that Expo provides (or if you want to use your own editor) you can **Download** your project and use it with [expo-cli](https://docs.expo.io/get-started/installation).
-
-All projects created in Snack are publicly available, so you can easily share the link to this project via link, or embed it on a web page with the `<>` button.
-
-If you're having problems, you can tweet to us [@expo](https://twitter.com/expo) or ask in our [forums](https://forums.expo.io/c/snack).
-
-Snack is Open Source. You can find the code on the [GitHub repo](https://github.com/expo/snack).
+### Colaboradores(Clique na foto para conhecer o o perfil)  
+<a href='https://github.com/Euflazino'><img width="50px" height="50px" src="https://avatars.githubusercontent.com/u/90802929?s=100&v=4" title="python"></a>
+<a href='https://github.com/Edsondomngos'><img width="50px" height="50px" src="https://avatars.githubusercontent.com/u/19561498?s=64&v=4" title="python"></a>
+<a href='https://github.com/Byanna13'><img width="50px" height="50px" src="https://avatars.githubusercontent.com/u/89141419?s=100&v=4" title="python"></a>
+<a href='https://github.com/OzieleOliveira'><img width="50px" height="50px" src="https://avatars.githubusercontent.com/u/100812251?s=100&v=4" title="python"></a>
