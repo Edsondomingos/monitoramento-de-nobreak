@@ -1,12 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  Switch,
-  TouchableHighlight,
-} from 'react-native';
+import { Text, View, StyleSheet, Switch, TouchableHighlight, } from 'react-native';
 
 export default function LigaDesligar() {
   const [liga, setLigar] = useState(false);
