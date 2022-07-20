@@ -15,8 +15,7 @@ export default function Bateria(props) {
     <Text style={styles.titulo}>Nível de Bateria</Text>
       <View style={styles.bateria}>
         <Text style={styles.textoNivel}>{nivel}%</Text>
-      </View>
-      <Button title="Ir para LigaDesliga" onPress={() => { props.navigation.navigate("LigaDesliga"); }} />  
+      </View>  
     </View>
   );
 }
