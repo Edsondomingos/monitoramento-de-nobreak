@@ -1,38 +1,43 @@
 import * as React from 'react';
-import { Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Index from '../Login/index'
+//import Index from '../Login/index'
+import Mudar from '../components/Mudar'
 import Bateria from "../components/Bateria"
-import LigaDesliga from "../components/LigaDesligar"
+import LigaDesligar from "../components/LigaDesligar"
 
 const Stack = createNativeStackNavigator()
 
-export default function app(){
+export default function (){
     return (
-        <NavigationContainer>
-        <Stack.Navigator initialRouteName='Index' screenOptions={{headerShown: true}}>
-        <Stack.Screen name="Index" component={Bateria} options={{ title: 'Index',
-              headerStyle: {
-              backgroundColor: 'green', }, headerTintColor: '#fff',
+      <NavigationContainer>
+      <Stack.Navigator initialRouteName="Bateria" screenOptions={{headerShown: true}} >
+        <Stack.Screen name="Bateria" component={Bateria} options={{ title: 'Bateria', 
+            headerStyle: { 
+            backgroundColor: 'green' }, headerTintColor: '#fff', 
             headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-              }} />
-        <Stack.Screen name="Bateria" component={Bateria} options={{ title: 'Bateria',
-              headerStyle: {
-              backgroundColor: 'green', }, headerTintColor: '#fff',
+            fontWeight: 'bold',
+          }, }} />
+        {/*<Stack.Screen name="Bateria" component={Bateria} options={{ title: 'Bateria',
+            headerStyle: {
+            backgroundColor: 'green' }, headerTintColor: '#fff',
             headerTitleStyle: {
-              fontWeight: 'bold',
-            }, }} />  
-        <Stack.Screen name="LigaDesliga" component={LigaDesliga} options={{ title: 'LigaDesliga',
-              headerStyle: {
-              backgroundColor: 'green', }, headerTintColor: '#fff',
+            fontWeight: 'bold',
+          }, }} />*/}
+        <Stack.Screen name="Mudar" component={Mudar} options={{ title: 'Mudar',
+            headerStyle: {
+            backgroundColor: 'green' }, headerTintColor: '#fff',
             headerTitleStyle: {
-              fontWeight: 'bold',
-            }, }} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
+            fontWeight: 'bold',
+          }, }} />
+        <Stack.Screen name="LigaDesligar" component={LigaDesligar} options={{ title: 'LigaDesligar',
+            headerStyle: {
+            backgroundColor: 'green' }, headerTintColor: '#fff',
+            headerTitleStyle: {
+            fontWeight: 'bold',
+          }, }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+    )
   }
   
