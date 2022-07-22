@@ -1,10 +1,22 @@
-import Styled from 'styled-components'
+import styled from 'styled-components'
 
-// export const Container = Styled.View`
+// export const Container = styled.View`
 //     height: 100vh;
 // `;
 
 
-export const Input = Styled.TextInput`
+export const Entrada = styled.TextInput`
     border: 1px solid #fff;
+    height: 30PX;
 `;
+
+export const Texto = styled.TextInput`
+    border: 1px solid #fff;
+    height: 30PX;
+`;
+
+// export default function Teste(){
+//     return (
+//         <></>
+//     )
+// }
