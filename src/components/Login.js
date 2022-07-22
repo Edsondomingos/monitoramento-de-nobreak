@@ -1,8 +1,12 @@
 import { View } from 'react-native'
+import { Input }from '../style/StyleComponents'
+
 export default function EditarNobreak(){
     return (
-        <View>
+        <Input
+            placeholder='Teste'
+        >
 
-        </View>
+        </Input>
     )
 }

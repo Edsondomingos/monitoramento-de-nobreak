@@ -1,7 +1,7 @@
 import { View } from 'react-native'
 
 
-export default EditarNobreak(){
+export default function EditarNobreak(){
     return (
         <View>
             
