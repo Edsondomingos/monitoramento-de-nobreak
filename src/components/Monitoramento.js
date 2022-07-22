@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Text, View, TouchableHighlight, ScrollView } from 'react-native';
 import Styles from '../../assets/css/Estilos'
 
-export default function Bateria() {
+export default function Monitoramento() {
 
   const [liga, setLigar] = useState(false);
   const [nome, setNome] = useState('Nome do Nobreak')
