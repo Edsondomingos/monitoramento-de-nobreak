@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Text, View, Stylesheet, TouchableHighlight, ScrollView } from 'react-native';
-import Styles from '../assets/Estilos'
+import { Text, View, TouchableHighlight, ScrollView } from 'react-native';
+import Styles from '../../assets/css/Estilos'
 
 export default function Bateria() {
 
