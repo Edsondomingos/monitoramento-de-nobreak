@@ -1,11 +1,16 @@
 import * as React from "react"
 import { View, Button } from "react-native"
 
-export default function (props) {
+export default (props) => {
   return (
     <View >
-      <Button title="Ir para Bateria" onPress={() => { props.navigation.navigate("Bateria"); }}  />
-      <Button title="Ir para LigaDesligar" onPress={() => { props.navigation.navigate("LigaDesligar"); }}  />
+      <Button color={'green'} title="Ir para Bateria" onPress={() => { props.navigation.navigate("Bateria"); }} />
+      <Button color={'green'} title="Ir para LigaDesligar" onPress={() => { props.navigation.navigate("LigaDesligar"); }} />
+      <Button color='red' title="Voltar"
+        onPress={() => {
+          props.navigation.goBack()
+        }}
+      />
     </View>
   )
 }
