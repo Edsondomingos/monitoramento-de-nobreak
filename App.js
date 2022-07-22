@@ -10,6 +10,6 @@ import Cadastro from './src/components/EditarPerfil';
 
 export default function App() {
   return (
-      <Cadastro />
+      <Tela_escolha />
   )
 }

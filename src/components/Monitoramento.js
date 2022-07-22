@@ -15,7 +15,7 @@ export default function Monitoramento() {
 
   return (
     <View style={Styles.container}>
-      <ScrollView>
+      
   
       <Text style={Styles.titulo}>{nome}</Text>  
       
@@ -39,7 +39,7 @@ export default function Monitoramento() {
         </TouchableHighlight>
       </View>
     
-      </ScrollView>
+     
     </View>
   );
 }
