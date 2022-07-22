@@ -1,7 +1,7 @@
-import React from "react"
-import { TextInput, Text, View, Button } from "react-native"
+import * as React from "react"
+import { View, Button } from "react-native"
 
-export default function () {
+export default function (props) {
   return (
     <View >
       <Button title="Ir para Bateria" onPress={() => { props.navigation.navigate("Bateria"); }}  />

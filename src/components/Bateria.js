@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 
 export default function Bateria(props) {
 
@@ -16,6 +16,7 @@ export default function Bateria(props) {
       <View style={styles.bateria}>
         <Text style={styles.textoNivel}>{nivel}%</Text>
       </View>  
+      <Button title="Ir para LigaDesligar" onPress={() => { props.navigation.navigate("LigaDesligar"); }}  />
     </View>
   );
 }
