@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View, Text, TextInput, TouchableHighlight, StyleSheet } from 'react-native'
 
-export default function Login(){
+export default function Login(props){
     return (
         <View  style={styles.container}>
             <Text style={styles.titulo}>Login</Text>
@@ -21,7 +21,7 @@ export default function Login(){
                 <Text  style={styles.texto}>Entrar</Text>
 
             </TouchableHighlight>
-            
+            <Text style={styles.textoLink} onPress={() => props.navigation.navigate('Cadastro')}>Criar uma conta</Text>
         </View>
     )
 }
@@ -29,7 +29,6 @@ export default function Login(){
 const styles = StyleSheet.create({
     container:{
         flex: 1,
-        backgroundColor: 'red',
     },  
     titulo:{
         fontSize: 30,
@@ -58,5 +57,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         textAlign: 'center',
         margin: 'auto'
+    },
+    textoLink:{
+        fontSize: 22,
+        textDecorationLine: 'underline',
+        margin: 'auto',
     },
 })

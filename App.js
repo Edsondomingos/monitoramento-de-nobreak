@@ -10,8 +10,6 @@ import Cadastro from './src/components/EditarPerfil';
 
 export default function App() {
   return (
-    <View> 
-      <Monitoramento />
-    </View>
+      <Cadastro />
   )
 }
