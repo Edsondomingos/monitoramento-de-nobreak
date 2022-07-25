@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { View, Text, TextInput, TouchableHighlight, StyleSheet } from 'react-native'
 
-export default function Cadastro(){
+export default function Cadastro(props){
     return (
         <View  style={styles.container}>
             <Text style={styles.titulo}>Cadastro de Usuário</Text>
@@ -21,7 +21,7 @@ export default function Cadastro(){
                 secureTextEntry={true}
             />
             <TouchableHighlight
-                style={styles.botao}
+                style={styles.botao} onPress={() => props.navigation.navigate('Login')}
             >
                 <Text  style={styles.texto}>Entrar</Text>
 
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     input: {
-        outline: 0,
+        //outline: 0,
         height: 30,
         width: 250, 
         borderWidth: 1,

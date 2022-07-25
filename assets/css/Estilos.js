@@ -10,7 +10,7 @@ export default StyleSheet.create({
     width: 150,
     height: 150,
     borderWidth: 1,
-    borderRadius: '50%',
+    borderRadius: 100,
     backgroundColor: '#7f7',
     margin: 'auto'
   },
@@ -18,7 +18,7 @@ export default StyleSheet.create({
     width: 150,
     height: 150,
     borderWidth: 1,
-    borderRadius: '50%',
+    borderRadius: 100,
     backgroundColor: '#f33',
     margin: 'auto'
   },
@@ -32,7 +32,7 @@ export default StyleSheet.create({
   txtBt:{
     margin: 'auto',
     fontSize: 20,
-    fontWeight: 'bolder'
+    fontWeight: 'bold'
   },
   titulo:{
     fontSize: 27,
@@ -42,12 +42,12 @@ export default StyleSheet.create({
     borderWidth: 2,
     width: 150,
     height: 150,
-    borderRadius: '50%',
+    borderRadius: 100,
     margin: 'auto',
   },
   textoNivel:{
     margin: 'auto',
-    fontWeight: 'bolder',
+    fontWeight: 'bold',
     fontSize: 25,
   }
 })

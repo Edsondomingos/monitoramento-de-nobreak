@@ -1,5 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet } from "react-native";
 import Mudar from './Mudar';
 import Monitoramento from './Monitoramento';
 import Cadastrar_Nobreak from "./Cadastrar_Nobreak";
@@ -11,7 +12,7 @@ const Stack = createNativeStackNavigator()
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="mudar" screenOptions={{ headerShown: true }} >
+      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: true }} >
 
         <Stack.Screen name="Mudar" component={Mudar} options={{
           title: 'MENU',
@@ -32,7 +33,7 @@ export default () => {
           },
         }} />
         <Stack.Screen name="Cadastrar_Nobreak" component={Cadastrar_Nobreak} options={{
-          title: 'CADASTRAR_NOBREAK',
+          title: 'CADASTRAR NOBREAK',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
