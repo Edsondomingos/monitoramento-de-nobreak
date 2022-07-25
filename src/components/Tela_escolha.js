@@ -16,8 +16,8 @@ export default () => {
         <Stack.Screen name="Mudar" component={Mudar} options={{
           title: 'MENU',
           headerStyle: {
-            backgroundColor: '#32CD32',
-          }, headerTintColor: '#fff',
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -25,8 +25,8 @@ export default () => {
         <Stack.Screen name="Monitoramento" component={Monitoramento} options={{
           title: 'MONITORAMENTO',
           headerStyle: {
-            backgroundColor: '#32CD32',
-          }, headerTintColor: '#fff',
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -34,8 +34,8 @@ export default () => {
         <Stack.Screen name="Cadastrar_Nobreak" component={Cadastrar_Nobreak} options={{
           title: 'CADASTRAR_NOBREAK',
           headerStyle: {
-            backgroundColor: '#32CD32',
-          }, headerTintColor: '#fff',
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -43,8 +43,8 @@ export default () => {
         <Stack.Screen name="Login" component={Login} options={{
           title: 'LOGIN',
           headerStyle: {
-            backgroundColor: '#32CD32',
-          }, headerTintColor: '#fff',
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
@@ -52,8 +52,8 @@ export default () => {
         <Stack.Screen name="Cadastro" component={Cadastro} options={{
           title: 'CADASTRO',
           headerStyle: {
-            backgroundColor: '#32CD32',
-          }, headerTintColor: '#fff',
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
           headerTitleStyle: {
             fontWeight: 'bold',
           },
