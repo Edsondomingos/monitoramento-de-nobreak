@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Text, View, TouchableHighlight, ScrollView } from 'react-native';
+import { Container, Titulo, TextoComum, Botao, Circulo } from '../../assets/styledComponents/Components'
 import Styles from '../../assets/css/Estilos'
 
 export default function Monitoramento() {
@@ -14,32 +15,32 @@ export default function Monitoramento() {
   }
 
   return (
-    <View style={Styles.container}>
+    <Container style={Styles.container}>
       
   
-      <Text style={Styles.titulo}>{nome}</Text>  
+      <Titulo>{nome}</Titulo>  
       
-      <View style={Styles.opcao}>
-        <Text style={Styles.titulo}>Uso de Energia</Text>
-      </View>
+      <Circulo>
+        <TextoComum>Uso de Energia</TextoComum>
+      </Circulo>
 
-      <View style={Styles.opcao}>
+      <View>
         <Text style={Styles.titulo}>Nivel de bateria</Text>
-        <View style={Styles.bateria}>      
+        <Circulo>      
           <Text style={Styles.textoNivel}>{nivel}%</Text>
-        </View>
+        </Circulo>
       </View>
 
-      <View style={Styles.opcao}>
-        <TouchableHighlight 
+      <Circulo>
+        <Botao 
             style={liga ? Styles.botao : Styles.botaoD}
             onPress={switchLigar}
           >
-          <Text style={Styles.txtBt}>{liga ? 'LIGADO' : 'DESLIGADO'}</Text>
-        </TouchableHighlight>
-      </View>
+          <TextoComum>{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>
+        </Botao>
+      </Circulo>
     
      
-    </View>
+    </Container>
   );
 }
