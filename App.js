@@ -6,10 +6,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/components/Login';
 import Monitoramento from './src/components/Monitoramento';
 import Mudar from './src/components/Mudar';
+import Teste from './src/ajuda/TesteMQTT'
 import Cadastro from './src/components/Cadastro';
 
 export default function App() {
   return (
-      <Cadastro />
+      <Teste />
   )
 }
