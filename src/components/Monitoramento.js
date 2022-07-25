@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Text, View, TouchableHighlight, ScrollView } from 'react-native';
-import { Container, Titulo, TextoComum, Botao, Circulo } from '../../assets/styledComponents/Components'
-import Styles from '../../assets/css/Estilos'
+import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga } from '../../assets/styledComponents/Components'
 
 export default function Monitoramento() {
 
@@ -15,7 +13,7 @@ export default function Monitoramento() {
   }
 
   return (
-    <Container style={Styles.container}>
+    <Container>
       
   
       <Titulo>{nome}</Titulo>  
@@ -23,21 +21,23 @@ export default function Monitoramento() {
       <Circulo>
         <TextoComum>Uso de Energia</TextoComum>
       </Circulo>
-
-      <View>
-        <Text style={Styles.titulo}>Nivel de bateria</Text>
-        <Circulo>      
-          <Text style={Styles.textoNivel}>{nivel}%</Text>
-        </Circulo>
-      </View>
+      
+      
+      <Circulo> 
+        <TextoComum>Bateria</TextoComum>     
+        <TextoComum>{nivel}%</TextoComum>
+      </Circulo>
 
       <Circulo>
-        <Botao 
-            style={liga ? Styles.botao : Styles.botaoD}
+        <LigaDesliga 
+            
+            style={liga ? {backgroundColor: '#7f7'} : {backgroundColor: '#f33'}}
             onPress={switchLigar}
           >
-          <TextoComum>{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>
-        </Botao>
+          <TextoComum
+          
+          >{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>
+        </LigaDesliga>
       </Circulo>
     
      

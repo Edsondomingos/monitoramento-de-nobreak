@@ -1,67 +1,30 @@
 import * as React from 'react'
-import { View, Text, TextInput, TouchableHighlight, StyleSheet } from 'react-native'
+import {ImageBackground} from 'react-native'
+import { Container, Titulo, TextoBtn, TextoComum, Botao, Entrada } from '../../assets/styledComponents/Components'
 
 export default function Login(props){
     return (
-        <View  style={styles.container}>
-            <Text style={styles.titulo}>Login</Text>
-            <TextInput 
-                style={styles.input}
+        <Container>
+            <ImageBackground 
+            source={require('../../img/iot.jpg')} 
+            style={{width: 100, height: 100}} ></ImageBackground>
+            <Titulo>Login</Titulo>
+            
+            <Entrada 
                 placeholder='Digite seu email'
-
             />
-            <TextInput 
-                style={styles.input}
+            <Entrada 
                 placeholder='Digite sua senha'
                 secureTextEntry={true}
             />
-            <TouchableHighlight
-                style={styles.botao}
+            <Botao
+                onPress={() => props.navigation.navigate('Mudar')}
             >
-                <Text  style={styles.texto}>Entrar</Text>
+                <TextoBtn>Entrar</TextoBtn>
 
-            </TouchableHighlight>
-            <Text style={styles.textoLink} onPress={() => props.navigation.navigate('Cadastro')}>Criar uma conta</Text>
-        </View>
+            </Botao>
+            <TextoComum onPress={() => props.navigation.navigate('Cadastro')}>Criar uma conta</TextoComum>
+            
+        </Container>
     )
 }
-
-const styles = StyleSheet.create({
-    container:{
-        flex: 1,
-        backgroundColor: '#ccffff'
-    },  
-    titulo:{
-        fontSize: 30,
-        textAlign: 'center',
-    },
-    input: {
-        //outline: 0,
-        height: 30,
-        width: 250, 
-        borderWidth: 1,
-        margin: 'auto',
-        marginVertical: 10, 
-        borderRadius: 5,
-        padding: 5, 
-    },
-    botao:{
-        width: 250,
-        height: 30,
-        backgroundColor: '#55f',
-        borderRadius: 7,
-        margin: 'auto',
-        marginVertical: 15, 
-    },
-    texto:{
-        fontSize: 15,
-        color: '#fff',
-        textAlign: 'center',
-        margin: 'auto'
-    },
-    textoLink:{
-        fontSize: 22,
-        textDecorationLine: 'underline',
-        marginHorizontal: 'auto',
-    },
-})

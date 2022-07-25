@@ -1,7 +1,7 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -10,28 +10,29 @@ export const Container = styled.View`
 `;
 
 export const Circulo = styled.View`
-    width: 200px;
-    height: 200px
-    border-radius: 50%;
-    border: 1px solid #000;
+    width: 180px;
+    height: 180px;
+    border-radius: 100px;
+    border: 5px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px 0;
+    
 `;
 
 export const Titulo = styled.Text`
     text-align: center;
     font-size: 30px;
     color: #000;
+    font-family: 'Arial;
 `;
 
 export const TextoComum = styled.Text`
     text-align: center;
-    font-size: 25px;
+    font-size: 22px;
     color: #000;
-    color: #000;
-    margin: auto;
+    margin: 10px 0;
 `;
 
 export const TextoBtn = styled.Text`
@@ -47,6 +48,8 @@ export const Entrada = styled.TextInput`
     width: 250px;
     padding: 10px;
     border-radius: 7px;
+    margin: 10px 0;
+    background-color: #fff;
 `;
 
 
@@ -57,4 +60,19 @@ export const Botao = styled.TouchableHighlight`
     height: 40px;
     margin: 10px 0;
     background-color: #55f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
+export const LigaDesliga = styled.TouchableHighlight`
+    width: 150px;
+    height: 150px;
+    borderWidth: 1;
+    borderRadius: 100;
+    backgroundColor: #7f7;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
