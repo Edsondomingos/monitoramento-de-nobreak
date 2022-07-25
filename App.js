@@ -6,10 +6,10 @@ import { NavigationContainer } from '@react-navigation/native';
 import Login from './src/components/Login';
 import Monitoramento from './src/components/Monitoramento';
 import Mudar from './src/components/Mudar';
-import Cadastro from './src/components/EditarPerfil';
+import Cadastro from './src/components/Login';
 
 export default function App() {
   return (
-      <Tela_escolha />
+      <Cadastro />
   )
 }
