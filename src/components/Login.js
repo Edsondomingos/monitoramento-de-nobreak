@@ -29,6 +29,7 @@ export default function Login(props){
 const styles = StyleSheet.create({
     container:{
         flex: 1,
+        backgroundColor: '#ccffff'
     },  
     titulo:{
         fontSize: 30,
@@ -61,6 +62,6 @@ const styles = StyleSheet.create({
     textoLink:{
         fontSize: 22,
         textDecorationLine: 'underline',
-        margin: 'auto',
+        marginHorizontal: 'auto',
     },
 })
