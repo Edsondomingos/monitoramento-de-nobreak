@@ -11,6 +11,6 @@ import Cadastro from './src/components/Login';
 
 export default function App() {
   return (
-      <Monitoramento />
+      <Tela_escolha />
   )
 }
