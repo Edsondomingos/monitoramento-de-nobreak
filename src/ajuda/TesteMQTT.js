@@ -1,4 +1,4 @@
-import * as React from 'react'
+/*import * as React from 'react'
 import { useState } from "react"
 // import { StatusBar } from "expo-status-bar"
 import { StyleSheet, View, Text, Button, TextInput} from "react-native"
@@ -55,8 +55,8 @@ export default function App() {
     return (
         <View style={styles.container}>
             {/*}<ToggleSwitch isOn={isOn} onToggle={handleToggle} />
-            <StatusBar style="auto" />*/}
-            <Text> Topico: {topico} </Text>
+            <StatusBar style="auto" />
+           {/*} <Text> Topico: {topico} </Text>
             <Text> Mensagem: {mensagem} </Text>
         </View>
         
@@ -70,4 +70,4 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
     },
-})
+})*/

@@ -18,7 +18,7 @@ export default function Login(props){
                 secureTextEntry={true}
             />
             <Botao
-                onPress={() => props.navigation.navigate('Mudar')}
+                onPress={() => props.navigation.navigate('Menu')}
             >
                 <TextoBtn>Entrar</TextoBtn>
 

@@ -5,7 +5,7 @@ export default function EditarNobreak(props){
             <Titulo>Editar Nobreak</Titulo>
             <Entrada placeholder='codigo'/>
             <Botao 
-                onPress={() => props.navigation.navigate('Mudar')}
+                onPress={() => props.navigation.navigate('Menu')}
             >
                 <TextoBtn>Editar Nobreak</TextoBtn>
             </Botao>

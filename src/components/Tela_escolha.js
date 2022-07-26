@@ -1,11 +1,12 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { StyleSheet } from "react-native";
-import Mudar from './Mudar';
+import Menu from './Menu';
 import Monitoramento from './Monitoramento';
 import Cadastrar_Nobreak from "./Cadastrar_Nobreak";
 import Login from './Login';
 import Cadastro from "./Cadastro";
+import EditarPerfil from './EditarPerfil';
 
 const Stack = createNativeStackNavigator()
 
@@ -14,7 +15,7 @@ export default () => {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: true }} >
 
-        <Stack.Screen name="Mudar" component={Mudar} options={{
+        <Stack.Screen name="Menu" component={Menu} options={{
           title: 'MENU',
           headerStyle: {
             backgroundColor: '#00FFFF',
@@ -52,6 +53,15 @@ export default () => {
         }} />
         <Stack.Screen name="Cadastro" component={Cadastro} options={{
           title: 'CADASTRO',
+          headerStyle: {
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
+        <Stack.Screen name="EditarPerfil" component={EditarPerfil} options={{
+          title: 'EditarPerfil',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
