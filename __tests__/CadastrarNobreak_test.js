@@ -1,5 +1,5 @@
 import { render, fireEvent } from "@testing-library/react-native";
-import Cadastrar_Nobreak from '../src/components/Tela_Escolha';
+import Cadastrar_Nobreak from '../src/components/Tela_escolha';
 jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
 
 describe("Teste de inicialização e Exibição", ()=>{

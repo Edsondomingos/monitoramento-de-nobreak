@@ -7,6 +7,7 @@ import Cadastrar_Nobreak from "./Cadastrar_Nobreak";
 import Login from './Login';
 import Cadastro from "./Cadastro";
 import EditarPerfil from './EditarPerfil';
+import EditarNobreak from "./EditarNobreak";
 
 const Stack = createNativeStackNavigator()
 
@@ -16,7 +17,7 @@ export default () => {
       <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: true }} >
 
         <Stack.Screen name="Menu" component={Menu} options={{
-          title: 'MENU',
+          title: 'Menu',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
@@ -25,7 +26,7 @@ export default () => {
           },
         }} />
         <Stack.Screen name="Monitoramento" component={Monitoramento} options={{
-          title: 'MONITORAMENTO',
+          title: 'Monitoramento',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
@@ -34,7 +35,7 @@ export default () => {
           },
         }} />
         <Stack.Screen name="Cadastrar_Nobreak" component={Cadastrar_Nobreak} options={{
-          title: 'CADASTRAR NOBREAK',
+          title: 'Cadastrar Nobreak',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
@@ -43,7 +44,7 @@ export default () => {
           },
         }} />
         <Stack.Screen name="Login" component={Login} options={{
-          title: 'LOGIN',
+          title: 'Login',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
@@ -52,7 +53,7 @@ export default () => {
           },
         }} />
         <Stack.Screen name="Cadastro" component={Cadastro} options={{
-          title: 'CADASTRO',
+          title: 'Cadastro',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
@@ -61,7 +62,16 @@ export default () => {
           },
         }} />
         <Stack.Screen name="EditarPerfil" component={EditarPerfil} options={{
-          title: 'EditarPerfil',
+          title: 'Editar Perfil',
+          headerStyle: {
+            backgroundColor: '#00FFFF',
+          }, headerTintColor: 'black',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }} />
+        <Stack.Screen name="EditarNobreak" component={EditarNobreak} options={{
+          title: 'Editar Nobreak',
           headerStyle: {
             backgroundColor: '#00FFFF',
           }, headerTintColor: 'black',
