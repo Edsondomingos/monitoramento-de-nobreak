@@ -3,13 +3,15 @@ import { Container,Botao, TextoBtn } from "../../assets/styledComponents/Compone
 
 export default (props) => {
   return (
-    <Container style={{flexDirection:"row"}} >
+    <Container >
+      <Container  style={{flexDirection:"row"}}>
         <Botao onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
           <TextoBtn>Editar Perfil</TextoBtn>
         </Botao>
         <Botao onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }}>
           <TextoBtn>Cadastrar</TextoBtn>
         </Botao>
+      </Container>
         <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
           <TextoBtn>Monitoramento</TextoBtn>
         </Botao>
