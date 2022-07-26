@@ -1,11 +1,7 @@
 import * as React from 'react'
 import { useState } from "react"
-// import { StatusBar } from "expo-status-bar"
-import { StyleSheet, View, Text, Button, TextInput} from "react-native"
-//import ToggleSwitch from "toggle-switch-react-native"
+import { StyleSheet, View, Text} from "react-native"
 import Paho from "paho-mqtt"
-import { useEffect } from "react/cjs/react.production.min"
-// import { useEffect } from "react"
 
 var topico;
 var mensagem;
@@ -19,29 +15,19 @@ const client = new Paho.Client(
 client.connect({
     onSuccess: function () {
         console.log("connected")
-        client.subscribe("esp32/output")
-        client.subscribe("esp32/distance")
-        client.subscribe("World"); // As linhas a seguir sao uma tentativa de envio de mensagem
-        const message1 = new Paho.Message("Conexao OK"); // AGORA funcionando
-        message1.destinationName = "World"; // para testar
-
-        client.send(message1); // abrir o broker online
+        client.subscribe("on")
+        const message1 = new Paho.Message("Foiii")
+        message1.destinationName = "on"
+        client.send(message1)
     },
     onFailure: function () {
-        console.log("Besti Besti")
+        console.log("Falhou")
     },
-    //userName: 'emqx',
-    //password: 'public',
-    //useSSL: true,
 })
 
 export default function App() {
-    //const [isOn, setIsOn] = useState(false)
 
     const [msg, setmsg] = useState('')
-    //const handleToggle = () => {
-        //setIsOn(!isOn)
-   // }
 
     client.onMessageArrived = function (message) {
         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
@@ -54,8 +40,6 @@ export default function App() {
 
     return (
         <View style={styles.container}>
-            {/*}<ToggleSwitch isOn={isOn} onToggle={handleToggle} />
-            <StatusBar style="auto" />*/}
             <Text> Topico: {topico} </Text>
             <Text> Mensagem: {mensagem} </Text>
         </View>
