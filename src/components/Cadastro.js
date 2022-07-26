@@ -22,6 +22,7 @@ export default function Cadastro(props){
                 secureTextEntry={true}
             />
             <Botao
+                testID='btnCriar'
                 onPress={() => props.navigation.navigate('Login')}
             >
                 <TextoBtn>Criar Conta</TextoBtn>

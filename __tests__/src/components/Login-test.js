@@ -20,11 +20,11 @@ describe("Teste de inicialização e Exibição", () => {
 
         const btnEntrar = getByTestId('btnEntrar')
         fireEvent.press(btnEntrar)
-        expect(getByText('Monitoramento'))
+        expect(getByText('Monitoramento')).toBeTruthy()
 
         const btnCriar = getByTestId('btnCriar')
         fireEvent.press(btnCriar)
-        expect(getByText('Cadastro de Usuário'))
+        expect(getByText('Cadastro de Usuário')).toBeTruthy()
 
         
     })
