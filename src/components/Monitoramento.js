@@ -30,7 +30,7 @@ export default function Monitoramento() {
 
       <Circulo>
         <LigaDesliga 
-            
+            testID='btnLigar'
             style={liga ? {backgroundColor: '#7f7'} : {backgroundColor: '#f33'}}
             onPress={switchLigar}
           >

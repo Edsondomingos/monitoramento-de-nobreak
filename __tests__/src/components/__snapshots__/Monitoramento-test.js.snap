@@ -1,0 +1,201 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Teste de snapshot Snapshot tela Monitoramento 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#fff",
+        "display": "flex",
+        "flexDirection": "column",
+        "height": "100%",
+        "justifyContent": "center",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 30,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Nome do Nobreak
+  </Text>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#000",
+          "borderRadius": 100,
+          "borderStyle": "solid",
+          "borderWidth": 5,
+          "display": "flex",
+          "height": 180,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 10,
+          "width": 180,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 22,
+            "marginBottom": 10,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Uso de Energia
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#000",
+          "borderRadius": 100,
+          "borderStyle": "solid",
+          "borderWidth": 5,
+          "display": "flex",
+          "height": 180,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 10,
+          "width": 180,
+        },
+      ]
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 22,
+            "marginBottom": 10,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      Bateria
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#000",
+            "fontSize": 22,
+            "marginBottom": 10,
+            "marginLeft": 0,
+            "marginRight": 0,
+            "marginTop": 10,
+            "textAlign": "center",
+          },
+        ]
+      }
+    >
+      50
+      %
+    </Text>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "borderColor": "#000",
+          "borderRadius": 100,
+          "borderStyle": "solid",
+          "borderWidth": 5,
+          "display": "flex",
+          "height": 180,
+          "justifyContent": "center",
+          "marginBottom": 10,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 10,
+          "width": 180,
+        },
+      ]
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#7f7",
+            "borderRadius": 100,
+            "borderWidth": 1,
+            "display": "flex",
+            "height": 150,
+            "justifyContent": "center",
+            "marginBottom": "auto",
+            "marginLeft": "auto",
+            "marginRight": "auto",
+            "marginTop": "auto",
+            "width": 150,
+          },
+          Object {
+            "backgroundColor": "#f33",
+          },
+        ]
+      }
+      testID="btnLigar"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#000",
+              "fontSize": 22,
+              "marginBottom": 10,
+              "marginLeft": 0,
+              "marginRight": 0,
+              "marginTop": 10,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        DESLIGADO
+      </Text>
+    </View>
+  </View>
+</View>
+`;

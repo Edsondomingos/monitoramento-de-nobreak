@@ -18,12 +18,13 @@ export default function Login(props){
                 secureTextEntry={true}
             />
             <Botao
+                testID='btnEntrar'
                 onPress={() => props.navigation.navigate('Menu')}
             >
                 <TextoBtn>Entrar</TextoBtn>
 
             </Botao>
-            <TextoComum onPress={() => props.navigation.navigate('Cadastro')}>Criar uma conta</TextoComum>
+            <TextoComum testID='btnCriar' onPress={() => props.navigation.navigate('Cadastro')}>Criar uma conta</TextoComum>
             
         </Container>
     )
