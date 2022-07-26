@@ -1,15 +1,17 @@
 import * as React from "react";
-import { Container,Botao, TextoBtn } from "../../assets/styledComponents/Components";
+import { Container,Botao, TextoBtn, MiniContainer } from "../../assets/styledComponents/Components";
 
 export default (props) => {
   return (
-    <Container style={{flexDirection:"row"}} >
+    <Container >
+      <MiniContainer  style={{flexDirection:"row"}}>
         <Botao onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
           <TextoBtn>Editar Perfil</TextoBtn>
         </Botao>
         <Botao onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }}>
           <TextoBtn>Cadastrar</TextoBtn>
         </Botao>
+      </MiniContainer>
         <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
           <TextoBtn>Monitoramento</TextoBtn>
         </Botao>
