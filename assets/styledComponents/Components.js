@@ -7,6 +7,7 @@ export const Container = styled.View`
     justify-content: center;
     align-items: center;
     font-family: Arial;
+    background-color: #fff;
 `;
 
 export const Circulo = styled.View`
