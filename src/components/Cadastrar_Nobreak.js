@@ -10,7 +10,7 @@ export default (props) => {
       <Titulo>Cadastrar Nobreak</Titulo>
       <Entrada placeholder="Codigo/Modelo" />
       <Entrada placeholder="Endereço MAC" />
-      <Botao testID='btn' onPress={() => props.navigation.navigate('Login')} >
+      <Botao testID='btn' onPress={() => props.navigation.navigate('Menu')} >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 
