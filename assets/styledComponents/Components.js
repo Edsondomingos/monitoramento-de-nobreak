@@ -6,7 +6,14 @@ export const Container = styled.View`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Arial;
+    background-color: #fff;
+`;
+
+export const MiniContainer = styled.View`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #fff;
 `;
 
@@ -26,7 +33,6 @@ export const Titulo = styled.Text`
     text-align: center;
     font-size: 30px;
     color: #000;
-    font-family: 'Arial;
 `;
 
 export const TextoComum = styled.Text`
@@ -59,7 +65,7 @@ export const Botao = styled.TouchableHighlight`
     border-radius: 10px;
     width: 200px;
     height: 40px;
-    margin: 10px 0;
+    margin: 10px 10px;
     background-color: #55f;
     display: flex;
     justify-content: center;
