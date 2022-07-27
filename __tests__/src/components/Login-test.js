@@ -4,13 +4,13 @@ import Login from '../../../src/components/Login'
 import Tela_escolha from '../../../src/components/Tela_escolha'
 jest.mock("react-native/Libraries/Animated/NativeAnimatedHelper");
 
-// describe('Teste de snapshot', () => {
-//     it('Snapshot tela Login', () => {
-//         const tela = renderer.create(<Login />).toJSON()
-//         expect(tela).toMatchSnapshot()
-//     })
+describe('Teste de snapshot', () => {
+    it('Snapshot tela Login', () => {
+        const tela = renderer.create(<Login />).toJSON()
+        expect(tela).toMatchSnapshot()
+    })
     
-// })
+})
 
 describe("Teste de inicialização e Exibição", () => {
     it("Components tela Login", () => {
