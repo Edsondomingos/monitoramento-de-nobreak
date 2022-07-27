@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styledComponents/Components'
 
-export default function Cadastro(){
+export default function EditarPerfil(props){
     return (
         <Container>
             <Titulo>Editar Usuário</Titulo>
@@ -14,7 +14,7 @@ export default function Cadastro(){
                 secureTextEntry={true}
             />
             <Botao
-            
+                onPress={() => props.navigation.navigate('Menu')}
             >
                 <TextoBtn>Entrar</TextoBtn>
 

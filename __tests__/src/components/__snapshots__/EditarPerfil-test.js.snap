@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Teste de snapshot Snapshot tela Login 1`] = `
+exports[`Teste de snapshot Snapshot tela EditarPerfil 1`] = `
 <View
   style={
     Array [
@@ -15,35 +15,6 @@ exports[`Teste de snapshot Snapshot tela Login 1`] = `
     ]
   }
 >
-  <View
-    accessibilityIgnoresInvertColors={true}
-    style={
-      Object {
-        "height": 100,
-        "width": 100,
-      }
-    }
-  >
-    <Image
-      source={1}
-      style={
-        Array [
-          Object {
-            "bottom": 0,
-            "left": 0,
-            "position": "absolute",
-            "right": 0,
-            "top": 0,
-          },
-          Object {
-            "height": 100,
-            "width": 100,
-          },
-          undefined,
-        ]
-      }
-    />
-  </View>
   <Text
     style={
       Array [
@@ -55,11 +26,11 @@ exports[`Teste de snapshot Snapshot tela Login 1`] = `
       ]
     }
   >
-    Login
+    Editar Usuário
   </Text>
   <TextInput
     allowFontScaling={true}
-    placeholder="Digite seu email"
+    placeholder="Nome completo"
     rejectResponderTermination={true}
     style={
       Array [
@@ -142,7 +113,6 @@ exports[`Teste de snapshot Snapshot tela Login 1`] = `
         },
       ]
     }
-    testID="btnEntrar"
   >
     <Text
       style={
@@ -158,24 +128,5 @@ exports[`Teste de snapshot Snapshot tela Login 1`] = `
       Entrar
     </Text>
   </View>
-  <Text
-    onPress={[Function]}
-    style={
-      Array [
-        Object {
-          "color": "#000",
-          "fontSize": 22,
-          "marginBottom": 10,
-          "marginLeft": 0,
-          "marginRight": 0,
-          "marginTop": 10,
-          "textAlign": "center",
-        },
-      ]
-    }
-    testID="btnCriar"
-  >
-    Criar uma conta
-  </Text>
 </View>
 `;

@@ -141,7 +141,7 @@ exports[`Teste de Snapshot Snapshot de App 1`] = `
         },
       ]
     }
-    testID="btn"
+    testID="btn5"
   >
     <Text
       style={

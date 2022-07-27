@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
-import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga } from '../../assets/styledComponents/Components'
+import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga, TextoBtn } from '../../assets/styledComponents/Components'
 
-export default function Monitoramento() {
+export default function Monitoramento(props) {
 
   const [liga, setLigar] = useState(false);
   const [nome, setNome] = useState('Nome do Nobreak')
@@ -39,7 +39,11 @@ export default function Monitoramento() {
           >{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>
         </LigaDesliga>
       </Circulo>
-    
+      <Botao
+        onPress={() => props.navigation.navigate('EditarNobreak')}
+      >
+        <TextoBtn>Editar nobreak</TextoBtn>
+      </Botao>
      
     </Container>
   );
