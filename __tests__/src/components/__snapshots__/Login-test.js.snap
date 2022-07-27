@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
+exports[`Teste de snapshot Snapshot tela Login 1`] = `
 <View
   style={
     Array [
@@ -55,11 +55,11 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
       ]
     }
   >
-    Cadastrar Nobreak
+    Login
   </Text>
   <TextInput
     allowFontScaling={true}
-    placeholder="Codigo/Modelo"
+    placeholder="Digite seu email"
     rejectResponderTermination={true}
     style={
       Array [
@@ -86,8 +86,9 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
   />
   <TextInput
     allowFontScaling={true}
-    placeholder="Endereço MAC"
+    placeholder="Digite sua senha"
     rejectResponderTermination={true}
+    secureTextEntry={true}
     style={
       Array [
         Object {
@@ -141,7 +142,7 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
         },
       ]
     }
-    testID="btn"
+    testID="btnEntrar"
   >
     <Text
       style={
@@ -154,8 +155,27 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
         ]
       }
     >
-      Cadastrar
+      Entrar
     </Text>
   </View>
+  <Text
+    onPress={[Function]}
+    style={
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 22,
+          "marginBottom": 10,
+          "marginLeft": 0,
+          "marginRight": 0,
+          "marginTop": 10,
+          "textAlign": "center",
+        },
+      ]
+    }
+    testID="btnCriar"
+  >
+    Criar uma conta
+  </Text>
 </View>
 `;

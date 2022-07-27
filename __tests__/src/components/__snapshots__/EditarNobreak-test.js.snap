@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
+exports[`Teste de snapshot Snapshot tela Login 1`] = `
 <View
   style={
     Array [
@@ -154,7 +154,7 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
         ]
       }
     >
-      Cadastrar
+      Editar Nobreak
     </Text>
   </View>
 </View>

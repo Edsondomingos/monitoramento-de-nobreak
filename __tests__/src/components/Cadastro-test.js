@@ -14,7 +14,7 @@ describe('Teste de snapshot', () => {
 
 describe("Teste de inicialização e Exibição", () => {
     it("texto em Cadastro", () => {
-        const { getByText, getByTestId} = render(<Cadastro />);
+        const { getByText} = render(<Cadastro />);
         
         expect(getByText("Cadastro de Usuário")).toBeTruthy()
 

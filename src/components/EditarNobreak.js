@@ -1,5 +1,5 @@
 import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styledComponents/Components'
-import { ImageBackground } from 'react-native-web'
+import { ImageBackground } from 'react-native'
 export default function EditarNobreak(props){
     return (
         <Container>

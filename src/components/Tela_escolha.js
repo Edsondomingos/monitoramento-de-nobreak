@@ -1,6 +1,5 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet } from "react-native";
 import Menu from './Menu';
 import Monitoramento from './Monitoramento';
 import Cadastrar_Nobreak from "./Cadastrar_Nobreak";
