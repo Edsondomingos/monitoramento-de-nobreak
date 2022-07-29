@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
+exports[`Teste de Snapshot Snapshot de App 1`] = `
 <RNCSafeAreaProvider
   onInsetsChange={[Function]}
   style={
