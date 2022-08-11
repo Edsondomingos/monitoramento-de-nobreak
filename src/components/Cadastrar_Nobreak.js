@@ -1,35 +1,30 @@
 import * as React from "react";
 import { ImageBackground } from "react-native";
-//import { Text, View, TextInput, Button } from "react-native";
+import { useState } from 'react';
 import { Container, Titulo, Entrada, Botao, TextoBtn } from "../../assets/styledComponents/Components";
-import { useState } from "react";
-import { app } from '../Config/firebaseconfig';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "../Config/firebaseconfig";
 
 export default () => {
 
-  const [codigo, setCodigo] = useState('')
-  const [mac, setMac] = useState('')
-  
-  function cadastro() {
-    const auth = getAuth(app);
-    createUserWithEmailAndPassword(auth, codigo, mac)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        alert("Cadastrou");
-        setCodigo('');
-        setMac('');
-        // ...
+  const [codigo, setCodigo] = useState('');
+  const [mac, setMac] = useState('');
+
+  function cadastrar(){
+    //setDoc(doc(db, "contatos", "LA"), {
+    //await addDoc(collection(db, "contatos"), {
+    addDoc(collection(db, 'nobreak'), {
+        codigo: codigo,
+        mac: mac,
+      }).then(() => {
+        //alert("Cadastrado com sucesso")
+      }).catch((error) => {
+        alert(error)
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        //menssagem de alerta
-        alert(errorMessage);
-        // ..
-      });
-  }
+
+      setCodigo('');
+      setMac('');
+}
 
   return (
     <Container>
@@ -39,7 +34,7 @@ export default () => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastro} >
+      <Botao testID='btn' onPress={cadastrar} >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 

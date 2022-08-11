@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator()
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Cadastrar_Nobreak" screenOptions={{ headerShown: true }} >
+      <Stack.Navigator initialRouteName="Menu" screenOptions={{ headerShown: true }} >
 
         <Stack.Screen name="Menu" component={Menu} options={{
           title: 'Menu',
