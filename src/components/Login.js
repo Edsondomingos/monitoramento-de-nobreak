@@ -11,7 +11,7 @@ export default (props) => {
     const [senha, setSenha] = useState('');
 
     function autenticar() {
-        const auth = getAuth(db);
+        const auth = getAuth(db, 'nobreak');
         signInWithEmailAndPassword(auth, email, senha)
           .then((userCredential) => {
             // Signed in

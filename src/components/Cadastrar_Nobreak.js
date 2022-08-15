@@ -10,7 +10,7 @@ export default () => {
   const [codigo, setCodigo] = useState('');
   const [mac, setMac] = useState('');
 
-  function cadastrar(){
+  function cadastrarno(){
     //setDoc(doc(db, "contatos", "LA"), {
     //await addDoc(collection(db, "contatos"), {
     addDoc(collection(db, 'nobreak'), {
@@ -34,7 +34,7 @@ export default () => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastrar} >
+      <Botao testID='btn' onPress={cadastrarno} >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 

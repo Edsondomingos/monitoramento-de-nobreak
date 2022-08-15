@@ -1,9 +1,9 @@
-import * as React from 'react'
-import { ImageBackground } from 'react-native'
-import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styledComponents/Components'
+import * as React from 'react';
+import { ImageBackground } from 'react-native';
+import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styledComponents/Components';
 import { useState } from "react";
 import { db } from '../Config/firebaseconfig';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default () => {
 
@@ -13,13 +13,14 @@ export default () => {
     
     function cadastrar() {
       const auth = getAuth(db);
-      createUserWithEmailAndPassword(auth, email, senha, nome)
+      createUserWithEmailAndPassword(auth, nome, email, senha)
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
           alert("Cadastrou");
-          setCodigo('');
-          setMac('');
+          setNome('');
+          setEmail('');
+          setSenha('');
           // ...
         })
         .catch((error) => {
