@@ -1,8 +1,32 @@
 import * as React from 'react'
 import {ImageBackground} from 'react-native'
+import { useState } from 'react';
 import { Container, Titulo, TextoBtn, TextoComum, Botao, Entrada } from '../../assets/styledComponents/Components'
+import { db } from '../Config/firebaseconfig';
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-export default function Login(props){
+export default (props) => {
+
+    const [email, setEmail] = useState('');
+    const [senha, setSenha] = useState('');
+
+    function autenticar() {
+        const auth = getAuth(db);
+        signInWithEmailAndPassword(auth, email, senha)
+          .then((userCredential) => {
+            // Signed in
+            const user = userCredential.user;
+            // ...
+            alert('Autenticou');
+          })
+          .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            //menssagem de alerta
+            alert(errorMessage);
+          });
+      }    
+
     return (
         <Container>
             <ImageBackground 
@@ -11,15 +35,15 @@ export default function Login(props){
             <Titulo>Login</Titulo>
             
             <Entrada 
-                placeholder='Digite seu email'
+                placeholder='Digite seu email' onChangeText={setEmail}
             />
             <Entrada 
-                placeholder='Digite sua senha'
+                placeholder='Digite sua senha' onChangeText={setSenha}
                 secureTextEntry={true}
             />
             <Botao
                 testID='btnEntrar'
-                onPress={() => props.navigation.navigate('Menu')}
+                onPress={autenticar}
             >
                 <TextoBtn>Entrar</TextoBtn>
 
