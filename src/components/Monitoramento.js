@@ -26,7 +26,7 @@ export default function Monitoramento(props) {
       
       <Circulo> 
         <TextoComum>Bateria</TextoComum>     
-        <TextoComum><MQTT />V</TextoComum>
+        <TextoComum><MQTT /></TextoComum>
       </Circulo>
 
       <Circulo>
