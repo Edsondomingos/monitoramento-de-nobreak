@@ -30,9 +30,9 @@ client.connect({
     onSuccess: function () {
         console.log("connected")
         client.subscribe("nobreak")
-        // const message1 = new Paho.Message("Maracuja")
-        // message1.destinationName = "nobreak"
-        // client.send(message1)
+        const message1 = new Paho.Message("12")
+        message1.destinationName = "nobreak"
+        client.send(message1)
     },
     onFailure: function () {
         console.log("Falhou")
@@ -42,7 +42,7 @@ client.connect({
 const porcentagem = (msg) => {    
     let valor = parseFloat(msg)
     if(valor >= 11.7 && valor <= 12.7){
-        let resultado = (1 - (12.7 - valor)) * 100
+        let resultado = parseInt((1 - (12.7 - valor)) * 100)
         return resultado + '%'
     } else if (valor < 11.7){
         return 'Descarregada'
