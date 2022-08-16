@@ -5,7 +5,7 @@ import { useState } from "react";
 import { db } from '../Config/firebaseconfig';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-export default () => {
+export default (props) => {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
@@ -52,7 +52,7 @@ export default () => {
             />
             <Botao
                 testID='btnCriar'
-                onPress={cadastrar}
+                onPress={() => props.navigation.navigate( {cadastrar})}
             >
                 <TextoBtn>Criar Conta</TextoBtn>
 

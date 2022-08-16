@@ -5,7 +5,7 @@ import { Container, Titulo, Entrada, Botao, TextoBtn } from "../../assets/styled
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Config/firebaseconfig";
 
-export default () => {
+export default (props) => {
 
   const [codigo, setCodigo] = useState('');
   const [mac, setMac] = useState('');
@@ -34,7 +34,7 @@ export default () => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastrarno} >
+      <Botao testID='btn' onPress={() => props.navigation.navigate('Menu', {cadastrarno})} >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 

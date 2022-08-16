@@ -12,15 +12,11 @@ export default (props) => {
       const auth = getAuth(db);
       signOut(auth).then(() => {
         // Sign-out successful.
-        alert('Desconectado');
+        alert('Desconectado')
       }).catch((error) => {
         // An error happened.
         alert(error);
       });
-      if('Desconectado'){
-      setTimeout(function() {
-        props.navigation.navigate("Login");
-      }, 5000); }
     }
 
     function verificar(){
@@ -48,7 +44,7 @@ export default (props) => {
         <Botao onPress={() =>{ props.navigation.navigate("Login"); }} >
           <TextoBtn>Login</TextoBtn>
         </Botao>
-        <Botao onPress={desconectar} >
+        <Botao onPress={() => props.navigation.navigate("Login", {desconectar})} >
           <TextoBtn>Desconectar</TextoBtn>
         </Botao>
         <Botao onPress={verificar} >

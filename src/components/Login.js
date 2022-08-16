@@ -10,6 +10,12 @@ export default (props) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
+    /*const entrar = () => {
+        console.log('Entrou');
+        console.log(email);
+        console.log(senha);
+      }*/
+
     function autenticar() {
         const auth = getAuth(db, 'nobreak');
         signInWithEmailAndPassword(auth, email, senha)
@@ -23,7 +29,7 @@ export default (props) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             //menssagem de alerta
-            alert(errorMessage);
+            alert(errorMessage)
           });
       }    
 
@@ -43,7 +49,7 @@ export default (props) => {
             />
             <Botao
                 testID='btnEntrar'
-                onPress={autenticar}
+                onPress={() => props.navigation.navigate("Menu", {autenticar})}
             >
                 <TextoBtn>Entrar</TextoBtn>
 
