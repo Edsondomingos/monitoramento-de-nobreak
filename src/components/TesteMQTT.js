@@ -39,27 +39,34 @@ client.connect({
     },
 })
 
-function pega(mess){
-    return mess
-}
-
 export default function App() {
 
     const [msg, setmsg] = useState('')
+    const [vl, setV] = useState('')
 
     client.onMessageArrived = function (message) {
         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
         topico = message.destinationName;
         mensagem = message.payloadString;
         setmsg(mensagem)
-        pega(mensagem)
+    }
+
+    const porcentagem = () => {
+        valor = parseFloat(mensagem)
+        if(valor >= 11.7 && valor <= 12.7){
+            setV(resultado = (1 - (12.7 - valor)) * 100)
+        } else if (valor < 11.7){
+            setV('Descarregada')
+        }
     }
    
+    
 
     return (
         <View style={styles.container}>
             {/*<Text> Topico: {topico} </Text>*/}
             <Text> {mensagem} </Text>
+            <Text> % {porcentagem} </Text>
         </View>
         
     )
