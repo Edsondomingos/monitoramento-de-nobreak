@@ -1,18 +1,16 @@
 import * as React from "react";
 import { Container,Botao, TextoBtn, MiniContainer } from "../../assets/styledComponents/Components";
-import { db } from '../Config/firebaseconfig';
+import { app } from '../Config/firebaseconfig'; 
 import { getAuth, signOut } from "firebase/auth";
-import { useState } from "react";
 
 export default (props) => {
 
-  const [time, setTime] = useState('');
-
     function desconectar() {
-      const auth = getAuth(db);
+      const auth = getAuth(app);
       signOut(auth).then(() => {
         // Sign-out successful.
         alert('Desconectado')
+        props.navigation.navigate("Login")
       }).catch((error) => {
         // An error happened.
         alert(error);
@@ -20,7 +18,7 @@ export default (props) => {
     }
 
     function verificar(){
-      const auth = getAuth(db);
+      const auth = getAuth(app);
       if(auth.currentUser){
         alert(auth.currentUser.email);
       }else{
@@ -44,7 +42,7 @@ export default (props) => {
         <Botao onPress={() =>{ props.navigation.navigate("Login"); }} >
           <TextoBtn>Login</TextoBtn>
         </Botao>
-        <Botao onPress={() => props.navigation.navigate("Login", {desconectar})} >
+        <Botao onPress={desconectar} >
           <TextoBtn>Desconectar</TextoBtn>
         </Botao>
         <Botao onPress={verificar} >

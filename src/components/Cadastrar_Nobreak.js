@@ -17,7 +17,9 @@ export default (props) => {
         codigo: codigo,
         mac: mac,
       }).then(() => {
-        //alert("Cadastrado com sucesso")
+        alert("Cadastrado com sucesso");
+
+        props.navigation.navigate('Menu');
       }).catch((error) => {
         alert(error)
       })
@@ -34,7 +36,7 @@ export default (props) => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={() => props.navigation.navigate('Menu', {cadastrarno})} >
+      <Botao testID='btn' onPress={cadastrarno} >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 

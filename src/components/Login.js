@@ -2,7 +2,7 @@ import * as React from 'react'
 import {ImageBackground} from 'react-native'
 import { useState } from 'react';
 import { Container, Titulo, TextoBtn, TextoComum, Botao, Entrada } from '../../assets/styledComponents/Components'
-import { db } from '../Config/firebaseconfig';
+import { app } from '../Config/firebaseconfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default (props) => {
@@ -17,13 +17,14 @@ export default (props) => {
       }*/
 
     function autenticar() {
-        const auth = getAuth(db, 'nobreak');
+        const auth = getAuth(app);
         signInWithEmailAndPassword(auth, email, senha)
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
             // ...
             alert('Autenticou');
+            props.navigation.navigate("Menu")
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -49,7 +50,7 @@ export default (props) => {
             />
             <Botao
                 testID='btnEntrar'
-                onPress={() => props.navigation.navigate("Menu", {autenticar})}
+                onPress={autenticar}
             >
                 <TextoBtn>Entrar</TextoBtn>
 
