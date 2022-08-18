@@ -32,7 +32,7 @@ export default (props) => {
     const auth = getAuth(app);
     signOut(auth).then(() => {
       // Sign-out successful.
-      alert('Desconectado')
+      alert('Desconectado!')
       props.navigation.navigate("Login")
     }).catch((error) => {
       // An error happened.
@@ -45,7 +45,7 @@ export default (props) => {
     if (auth.currentUser) {
       alert(auth.currentUser.email);
     } else {
-      alert('Não tem nenhum uruário autenticado');
+      alert('Não tem nenhum uruário autenticado!');
     }
   }
 
@@ -54,7 +54,7 @@ export default (props) => {
       codigo: codigo,
       mac: mac,
     }).then(() => {
-      alert("Atualizado com sucesso")
+      alert("Atualizado com sucesso!")
     }).catch((error) => {
       alert(error)
     })
@@ -84,11 +84,12 @@ export default (props) => {
       <Botao onPress={verificar} >
         <TextoBtn>Verificar Autenticação</TextoBtn>
       </Botao>
-      <Button title='Listar' onPress={listar} />
+      <Button title='Listar Nobreaks' onPress={listar} />
       <Text>{'\n\n'}</Text>
       <Text>LISTA DE CONTATOS</Text>
       <TextInput value={codigo} placeholder='Codigo' onChangeText={setCodigo} />
       <TextInput value={mac} placeholder='Mac' onChangeText={setMac} />
+      <Button title='Atualizar' onPress={atualizar}/>
       <Text>{'\n'}</Text>
       <FlatList
         // de onde vem os dados

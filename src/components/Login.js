@@ -23,7 +23,7 @@ export default (props) => {
             // Signed in
             const user = userCredential.user;
             // ...
-            alert('Autenticou');
+            alert('Autenticou!');
             props.navigation.navigate("Menu")
           })
           .catch((error) => {
