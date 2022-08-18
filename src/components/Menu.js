@@ -71,9 +71,8 @@ export default (props) => {
         <Botao onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
           <TextoBtn>Editar Perfil</TextoBtn>
         </Botao>
-        <Botao onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }}>
-          <TextoBtn>Cadastrar</TextoBtn>
-        </Botao>
+        <Button title="Cadastrar Nobreak" onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} 
+        />
       </MiniContainer>
       <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
         <TextoBtn>Monitoramento</TextoBtn>
@@ -81,9 +80,9 @@ export default (props) => {
       <Botao onPress={() => { props.navigation.navigate("Login"); }} >
         <TextoBtn>Login</TextoBtn>
       </Botao>
-      <Botao onPress={verificar} >
-        <TextoBtn>Verificar Autenticação</TextoBtn>
-      </Botao>
+      <Button title="Verificar Autenticação" onPress={verificar} 
+      />
+      <Text>{'\n'}</Text>
       <Button title='Listar Nobreaks' onPress={listar} />
       <Text>{'\n\n'}</Text>
       <Text>LISTA DE CONTATOS</Text>
