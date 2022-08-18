@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ImageBackground } from 'react-native';
 import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styledComponents/Components';
 import { useState } from "react";
-import { app } from '../Config/firebaseconfig';
+import { db } from '../Config/firebaseconfig';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 export default (props) => {
@@ -11,7 +11,7 @@ export default (props) => {
     const [senha, setSenha] = useState('')
     
     function cadastrar() {
-      const auth = getAuth(app);
+      const auth = getAuth(db);
       createUserWithEmailAndPassword(auth, email, senha)
         .then((userCredential) => {
           // Signed in
