@@ -66,7 +66,7 @@ export default (props) => {
         keyExtractor={item => item.id}
         renderItem={({ item }) =>
           <View>
-            <Text>Nobreak {item.id}</Text>
+            <Text>ID: {item.id}</Text>
             <Text>Nome: {item.codigo}</Text>
             <Text>E-mail: {item.mac}</Text>
             <Button title='Editar' onPress={() => {
