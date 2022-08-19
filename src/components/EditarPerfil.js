@@ -10,6 +10,7 @@ export default (props) => {
 
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
+    const [cpf, setCpf] = useState('')
     const [senha, setSenha] = useState('')
     const [telefone, setTelefone] = useState('')
     const [usuarios, setUsuario] = useState([{}])
@@ -24,8 +25,6 @@ export default (props) => {
     async function deletar(id_usuarios) {
         await deleteDoc(doc(db, "usuarios", id_usuarios));
         setNome('');
-        setEmail('');
-        setSenha('');
         setTelefone('');
         setIdUsuario('');
         listar();
@@ -33,18 +32,18 @@ export default (props) => {
     function atualizar() {
         updateDoc(doc(db, 'usuarios', idUsuarios), {
             nome: nome,
+            cpf: cpf,
             email: email,
             senha: senha,
             telefone: telefone
         }).then(() => {
             alert("Editado");
-            props.navigation.navigate('Menu');
+            //props.navigation.navigate('Menu');
         }).catch((error) => {
             alert(error)
         })
         setNome('');
-        setEmail('');
-        setSenha('');
+        setCpf(''),
         setTelefone('');
         setIdUsuario('');
         listar();
@@ -57,41 +56,43 @@ export default (props) => {
             <Titulo>Editar Usuário</Titulo>
             <Entrada
                 value={nome} placeholder='Nome completo' onChangeText={setNome}
-
             />
-            <Entrada
+            <Entrada value={cpf} placeholder='Digite seu CPF' onChangeText={setCpf} />
+            {/*<Entrada
                 value={email} placeholder='Digite seu email' onChangeText={setEmail}
-            />
+            /> */}
             <Entrada
                 value={telefone} placeholder='Digite o telefone' onChangeText={setTelefone}
             />
-            <Entrada
+            {/*<Entrada
                 value={senha} placeholder='Senha' onChangeText={setSenha}
                 secureTextEntry={true}
-            />
+        /> */}
             <Botao
                 onPress={atualizar}
             >
-                <TextoBtn>Editar</TextoBtn>
+                <TextoBtn>Atualizar</TextoBtn>
             </Botao>
-            <Button title='Listar' onPress={listar} />
             <Text>{'\n\n'}</Text>
-            <Text>LISTA DE USUÁRIOS</Text>
+            <Button title='Dados' onPress={listar} />
             <Text>{'\n'}</Text>
+            {/*<Text>DADOS</Text>*/}
             <FlatList
                 // de onde vem os dados
                 data={usuarios}
                 keyExtractor={item => item.id}
                 renderItem={({ item }) =>
                     <View>
-                        <Text>{item.id}</Text>
-                        <Text>{item.nome}</Text>
-                        <Text>{item.email}</Text>
-                        <Text>{item.senha}</Text>
-                        <Text>{item.telefone}</Text>
+                        <Text>ID: {item.id}</Text>
+                        <Text>Nome: {item.nome}</Text>
+                        <Text>CPF: {item.cpf}</Text>
+                        {/*<Text>{item.email}</Text>
+                        <Text>{item.senha}</Text>*/}
+                        <Text>Celular: {item.telefone}</Text>
 
                         <Button title='Editar' onPress={() => {
                             setNome(item.nome);
+                            setCpf(item.cpf);
                             setEmail(item.email);
                             setSenha(item.senha);
                             setTelefone(item.telefone);

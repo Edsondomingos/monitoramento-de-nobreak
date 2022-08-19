@@ -6,8 +6,16 @@ import { app } from '../Config/firebaseconfig';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { db } from '../Config/firebaseconfig';
 import { addDoc, collection } from 'firebase/firestore';
+//import * as yup from "yup";
 
 export default (props) => {
+
+/*  const login = (values) => console.log(values);
+
+  const validarlogin = yup .object().shape({
+    email: yup.string().email().required(),
+    senha: yup.string().min(8).required(),
+  }); */
 
     const [nome, setNome] = useState('')
     const [cpf, setCPF] = useState('')
@@ -21,9 +29,10 @@ export default (props) => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          alert("Cadastrou");
+          //alert("Cadastrou");
           setEmail('');
           setSenha('');
+          alert("Cadastrado com sucesso");
           props.navigation.navigate("Login");
           // ...
         })
@@ -34,23 +43,23 @@ export default (props) => {
           alert(errorMessage);
           // ..
         });
-    }
-    function cadastrarusu(){
         //setDoc(doc(db, "contatos", "LA"), {
         //await addDoc(collection(db, "contatos"), {
         addDoc(collection(db, 'usuarios'), {
             nome: nome,
+            //senha: senha,
+            //email: email,
             telefone: telefone,
             cpf: cpf
           }).then(() => {
-            alert("Cadastrado com sucesso");
-            props.navigation.navigate("Login");
-          }).catch((error) => {
-            alert(error)
-          })
-          setCPF('');
-          setNome('');
-          setTelefone('');
+            //alert("Cadastrado com sucesso");
+            //props.navigation.navigate("Login");
+          });
+          //setEmail('');
+          //setSenha('');
+          //setCPF('');
+          //setNome('');
+          //setTelefone('');
     }
 
     return (

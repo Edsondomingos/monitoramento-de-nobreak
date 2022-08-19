@@ -55,9 +55,10 @@ export default (props) => {
       <Botao testID='btn' onPress={atualizar} >
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
-      <Button title='Listar' onPress={listar} />
-      <Text>{'\n\n'}</Text>
-      <Text>LISTA DE CONTATOS</Text>
+      <Text>{'\n\n\n\n\n\n\n'}</Text>
+      <Button title='Listar Dados' onPress={listar} />
+      {/*<Text>{'\n\n'}</Text>
+      <Text>LISTA DE DADOS</Text>*/}
       <Text>{'\n'}</Text>
       <FlatList
         // de onde vem os dados
