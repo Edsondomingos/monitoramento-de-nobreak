@@ -2,7 +2,7 @@ import * as React from 'react'
 import {ImageBackground} from 'react-native'
 import { useState } from 'react';
 import { Container, Titulo, TextoBtn, TextoComum, Botao, Entrada } from '../../assets/styledComponents/Components'
-import { db } from '../Config/firebaseconfig';
+import { app } from '../Config/firebaseconfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default (props) => {
@@ -10,20 +10,27 @@ export default (props) => {
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
+    /*const entrar = () => {
+        console.log('Entrou');
+        console.log(email);
+        console.log(senha);
+      }*/
+
     function autenticar() {
-        const auth = getAuth(db);
+        const auth = getAuth(app);
         signInWithEmailAndPassword(auth, email, senha)
           .then((userCredential) => {
             // Signed in
             const user = userCredential.user;
             // ...
-            alert('Autenticou');
+            alert('Autenticou!');
+            props.navigation.navigate("Menu")
           })
           .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             //menssagem de alerta
-            alert(errorMessage);
+            alert(errorMessage)
           });
       }    
 

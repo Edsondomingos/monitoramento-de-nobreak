@@ -5,19 +5,21 @@ import { Container, Titulo, Entrada, Botao, TextoBtn } from "../../assets/styled
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../Config/firebaseconfig";
 
-export default () => {
+export default (props) => {
 
   const [codigo, setCodigo] = useState('');
   const [mac, setMac] = useState('');
 
-  function cadastrar(){
+  function cadastrarno(){
     //setDoc(doc(db, "contatos", "LA"), {
     //await addDoc(collection(db, "contatos"), {
     addDoc(collection(db, 'nobreak'), {
         codigo: codigo,
         mac: mac,
       }).then(() => {
-        //alert("Cadastrado com sucesso")
+        alert("Cadastrado com sucesso");
+
+        props.navigation.navigate('Menu');
       }).catch((error) => {
         alert(error)
       })
@@ -34,7 +36,7 @@ export default () => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastrar} >
+      <Botao testID='btn' onPress={cadastrarno} >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 

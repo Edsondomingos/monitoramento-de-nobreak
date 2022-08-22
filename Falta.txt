@@ -1,7 +1,8 @@
 Falta:
 
 Testes
-Autenticação
-Cadastro de nobreak
-Comunicação com nobreak
+Estilo e Reponsividade
+
+Comunicação com nobreak - Falta ligar/desligar
+
 Documento
