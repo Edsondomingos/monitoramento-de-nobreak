@@ -7,11 +7,15 @@ const int redeInPin = 35;
 const int relePin = 4;
 float sensorValue = 0; 
 float tensao = 0;
+float redeValue = 0;
+float redeValue2 = 0;
+float redeValue3 = 0;
+float statusRede = 0;
 
 const char* ssid = "wIFRN-IoT";
 const char* password = "deviceiotifrn";
-const char* mqtt_broker = "10.44.1.35";
-//const char *mqtt_broker = "broker.emqx.io";
+//const char* mqtt_broker = "10.44.1.35";
+const char *mqtt_broker = "broker.emqx.io";
 
 const char *mqtt_username = "emqx";
 const char *mqtt_password = "public";
@@ -116,5 +120,21 @@ void loop() {
     client.publish("nobreak", tensaoString);
 
     delay(1000);
+
+ redeValue = analogRead(redeInPin);
+ delay(8); // 8,7ms - meio periodo de uma onda 60hz
+ redeValue2 = analogRead(redeInPin);
+ delay(8);
+ redeValue3 = analogRead(redeInPin);
+ if (redeValue > 4000 && redeValue2 > 4000 && redeValue3 > 4000){
+    statusRede = 0;
+ } else {
+    statusRede = 1;
+ }
+ char redeString[8];
+  dtostrf(statusRede, 1, 2, redeString);
+  Serial.print("Rede: ");
+  Serial.print(statusRede);
+  client.publish("rede", redeString);
     
 }
