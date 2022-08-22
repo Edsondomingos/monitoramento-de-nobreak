@@ -14,23 +14,24 @@ const mqtt_username = "emqx";
 const mqtt_password = "public";
 const mqtt_port = 1883;
 
-// const client = new Paho.Client(
-//     'broker.emqx.io',
-//     8083,
-//     '/'
-// )
-
 const client = new Paho.Client(
-    '10.44.1.35',
-    9001,
+    'broker.emqx.io',
+    8083,
     '/'
 )
+
+// const client = new Paho.Client(
+//     '10.44.1.35',
+//     9001,
+//     '/'
+// )
 
 client.connect({
     onSuccess: function () {
         console.log("connected")
         client.subscribe("nobreak")
-        const message1 = new Paho.Message("12")
+        client.subscribe("rede")
+        const message1 = new Paho.Message("12.5")
         message1.destinationName = "nobreak"
         client.send(message1)
     },
