@@ -1,0 +1,7 @@
+Falta:
+
+Testes
+Autenticação
+Cadastro de nobreak
+Comunicação com nobreak
+Documento

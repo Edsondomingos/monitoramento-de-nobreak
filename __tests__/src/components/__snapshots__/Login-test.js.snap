@@ -59,6 +59,7 @@ exports[`Teste de snapshot Snapshot tela Login 1`] = `
   </Text>
   <TextInput
     allowFontScaling={true}
+    onChangeText={[Function]}
     placeholder="Digite seu email"
     rejectResponderTermination={true}
     style={
@@ -86,6 +87,7 @@ exports[`Teste de snapshot Snapshot tela Login 1`] = `
   />
   <TextInput
     allowFontScaling={true}
+    onChangeText={[Function]}
     placeholder="Digite sua senha"
     rejectResponderTermination={true}
     secureTextEntry={true}

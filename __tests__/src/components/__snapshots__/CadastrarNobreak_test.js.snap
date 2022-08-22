@@ -59,6 +59,7 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
   </Text>
   <TextInput
     allowFontScaling={true}
+    onChangeText={[Function]}
     placeholder="Codigo/Modelo"
     rejectResponderTermination={true}
     style={
@@ -86,6 +87,7 @@ exports[`Teste de Snapshot Snapshot de Cadastrar Nobreak 1`] = `
   />
   <TextInput
     allowFontScaling={true}
+    onChangeText={[Function]}
     placeholder="Endereço MAC"
     rejectResponderTermination={true}
     style={
