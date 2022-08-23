@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga, TextoBtn } from '../../assets/styledComponents/Components'
-import MQTT from './TesteMQTT'
+import {App, Red} from './TesteMQTT'
+import Status from './statusEnergia'
 
 export default function Monitoramento(props) {
 
@@ -21,12 +22,13 @@ export default function Monitoramento(props) {
       
       <Circulo>
         <TextoComum>Uso de Energia</TextoComum>
+        <Red />
       </Circulo>
       
       
       <Circulo> 
         <TextoComum>Bateria</TextoComum>     
-        <TextoComum><MQTT /></TextoComum>
+        <TextoComum><App /></TextoComum>
       </Circulo>
 
       <Circulo>
