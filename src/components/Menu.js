@@ -57,21 +57,25 @@ export default (props) => {
         <Botao onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
           <TextoBtn>Editar Perfil</TextoBtn>
         </Botao>
-        <Button title="Cadastrar Nobreak" onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} 
-        />
+        <Botao onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} >
+         <TextoBtn>Cadastrar Nobreak</TextoBtn>
+        
+        </Botao>
       </MiniContainer>
       <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
         <TextoBtn>Monitoramento</TextoBtn>
       </Botao>
-      <Botao onPress={() => { props.navigation.navigate("Login"); }} >
-        <TextoBtn>Login</TextoBtn>
+      {/* <Botao onPress={() => { props.navigation.navigate("Login"); }} > */}
+        {/* <TextoBtn>Login</TextoBtn> 
       </Botao>
-      <Button title="Verificar Autenticação" onPress={verificar} 
-      />
+     {/* <Button title="Verificar Autenticação" onPress={verificar} 
+      />   */}
 
-      <Text>{'\n\n\n\n\n\n\n'}</Text>
+      {/* <Text>{'\n\n\n\n\n\n\n'}</Text> */}
 
-      <Button title="Logout" onPress={desconectar} />
+      <Botao onPress={desconectar} >
+      <TextoBtn>Logout</TextoBtn>
+      </Botao>
       {/*<Button color={'#00FF99'} title="Ir para Cadastro" onPress={() => { props.navigation.navigate("Cadastro"); }} />
       <Button color={'#00FF99'} title="Ir para Cadastro de Nobreak" onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} />*/}
       {/*<Button color='red' title="Voltar" onPress={() => { props.navigation.goBack() }} /> keyboardType='number-pad' */}

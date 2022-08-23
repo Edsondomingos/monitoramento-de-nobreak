@@ -44,7 +44,7 @@ export const TextoComum = styled.Text`
 
 export const TextoBtn = styled.Text`
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
     color: #fff;
 `;
 
@@ -66,7 +66,7 @@ export const Botao = styled.TouchableHighlight`
     width: 200px;
     height: 40px;
     margin: 10px 10px;
-    background-color: #55f;
+    background-color: #4763ff;
     display: flex;
     justify-content: center;
     align-items: center;
