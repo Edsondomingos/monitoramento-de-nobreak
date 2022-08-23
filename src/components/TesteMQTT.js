@@ -5,14 +5,15 @@ import Paho from "paho-mqtt"
 
 var topico;
 var mensagem;
+var redeValue
 
-const ssid = "wIFRN-IoT";
-const  password = "deviceiotifrn";
-const mqtt_broker = "10.44.1.35";
+// const ssid = "wIFRN-IoT";
+// const  password = "deviceiotifrn";
+// const mqtt_broker = "10.44.1.35";
 
-const mqtt_username = "emqx";
-const mqtt_password = "public";
-const mqtt_port = 1883;
+// const mqtt_username = "emqx";
+// const mqtt_password = "public";
+// const mqtt_port = 1883;
 
 const client = new Paho.Client(
     'broker.emqx.io',
@@ -50,26 +51,39 @@ const porcentagem = (msg) => {
     }
 }
 
-export default function App() {
+export function App() {
 
     const [msg, setmsg] = useState('')
-    const [val, setV] = useState()
+    const [rede, setRede] = useState()
 
     client.onMessageArrived = function (message) {
         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
         topico = message.destinationName;
+<<<<<<< HEAD
         mensagem = message.payloadString
         setmsg(mensagem)
         // porcentagem(mensagem)
     }
 
     
+=======
+        if (topico == 'nobreak'){
+            mensagem = message.payloadString;
+            setmsg(mensagem)
+        }
+        if (topico == 'rede'){
+            redeValue = message.payloadString;
+            setRede(redeValue)
+        }
+    }    
+>>>>>>> 31b6aa1be2853456399f73a13ae53cee559fd24a
     
     return (
         <View style={styles.container}>
             {/*<Text> Topico: {topico} </Text>*/}
             <Text>{mensagem}v</Text>
             <Text>{porcentagem(mensagem)}</Text>
+            <Text>{redeValue}</Text>
         </View>
         
     )
@@ -83,3 +97,29 @@ const styles = StyleSheet.create({
         justifyContent: "center",
     },
 })
+
+export function Red(){
+
+    const [rede, setRede] = useState()
+    // let [teste, setTeste] = useState()
+
+    client.onMessageArrived = function (message) {
+        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
+        topico = message.destinationName;
+    
+        if (topico == 'rede'){
+            redeValue = message.payloadString;
+            setRede(rede)
+            // setTeste(typeof redeValue)
+        }
+    }  
+    
+    return (
+        <View>
+            <Text>
+                {redeValue == 0.00 ? 'Conectado a Tomada':'Fora da tomada'}
+                {typeof rede}
+            </Text>
+        </View>
+    )
+}
