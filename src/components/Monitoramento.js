@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga, TextoBtn } from '../../assets/styledComponents/Components'
-import {App, Red, onoff } from './TesteMQTT'
+import { App, Red, onoff } from './TesteMQTT'
 // import Status from './statusEnergia'
 
 export default function Monitoramento(props) {
