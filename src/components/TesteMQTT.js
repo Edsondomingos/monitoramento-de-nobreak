@@ -41,6 +41,43 @@ client.connect({
     },
 })
 
+export function onoff(){
+    client.subscribe("liga")
+    const message1 = new Paho.Message("on")
+    message1.destinationName = "liga"
+    client.send(message1)
+
+}
+
+export function onMessageArrived (message) {
+    // console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
+    // topico = message.topic;
+    // console.log('onMessageArrived')
+    // if (topico == 'rede'){
+    //     redeValue = message.payloadString;
+    // }
+    console.log(client.onMessageArrived.message.payloadString)
+}
+client.onMessageArrived = (message) => message.topic == 'liga' ? console.log(message.payloadString) : console.log('Erro')
+
+// function pegaDados(){
+//     client.onMessageArrived = function (message) {
+//         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
+//         // topico = message.destinationName;
+//         topico = message.topic;
+//         console.log(message)
+//         if (topico == 'nobreak'){
+//             mensagem = message.payloadString;
+//             // setmsg(mensagem)
+//         }
+//         if (topico == 'rede'){
+//             redeValue = message.payloadString;
+//             // setRede(redeValue)
+//         }
+//         return message.payloadString
+//     } 
+// }
+
 const porcentagem = (msg) => {    
     let valor = parseFloat(msg)
     if(valor >= 11.7 && valor <= 12.7){
@@ -51,6 +88,33 @@ const porcentagem = (msg) => {
     }
 }
 
+export function Red(){
+    console.log('topo de REDE')
+
+    const [rede, setRede] = useState()
+    // let [teste, setTeste] = useState()
+
+    client.onMessageArrived = function (message) {
+        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
+        topico = message.topic;
+        console.log('REDE ')
+        if (topico == 'rede'){
+            redeValue = message.payloadString;
+            setRede(rede)
+            // setTeste(typeof redeValue)
+        }
+    }  
+    
+    return (
+        <View>
+            <Text>
+                {redeValue == 0.00 ? 'Conectado a Tomada':'Fora da tomada'}
+                {typeof rede}
+            </Text>
+        </View>
+    )
+}
+
 export function App() {
 
     const [msg, setmsg] = useState('')
@@ -58,15 +122,11 @@ export function App() {
 
     client.onMessageArrived = function (message) {
         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-        topico = message.destinationName;
-<<<<<<< HEAD
-        mensagem = message.payloadString
-        setmsg(mensagem)
-        // porcentagem(mensagem)
-    }
-
-    
-=======
+        // topico = message.destinationName;
+        topico = message.topic;
+        // console.log(message)
+        console.log('Topico->', topico)
+        console.log('APP ^')
         if (topico == 'nobreak'){
             mensagem = message.payloadString;
             setmsg(mensagem)
@@ -76,7 +136,6 @@ export function App() {
             setRede(redeValue)
         }
     }    
->>>>>>> 31b6aa1be2853456399f73a13ae53cee559fd24a
     
     return (
         <View style={styles.container}>
@@ -98,28 +157,4 @@ const styles = StyleSheet.create({
     },
 })
 
-export function Red(){
 
-    const [rede, setRede] = useState()
-    // let [teste, setTeste] = useState()
-
-    client.onMessageArrived = function (message) {
-        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-        topico = message.destinationName;
-    
-        if (topico == 'rede'){
-            redeValue = message.payloadString;
-            setRede(rede)
-            // setTeste(typeof redeValue)
-        }
-    }  
-    
-    return (
-        <View>
-            <Text>
-                {redeValue == 0.00 ? 'Conectado a Tomada':'Fora da tomada'}
-                {typeof rede}
-            </Text>
-        </View>
-    )
-}

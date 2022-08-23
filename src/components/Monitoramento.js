@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga, TextoBtn } from '../../assets/styledComponents/Components'
-import {App, Red} from './TesteMQTT'
-import Status from './statusEnergia'
+import {App, Red, onoff } from './TesteMQTT'
+// import Status from './statusEnergia'
 
 export default function Monitoramento(props) {
 
@@ -23,6 +23,7 @@ export default function Monitoramento(props) {
       <Circulo>
         <TextoComum>Uso de Energia</TextoComum>
         <Red />
+        <TextoComum></TextoComum>
       </Circulo>
       
       
@@ -35,11 +36,10 @@ export default function Monitoramento(props) {
         <LigaDesliga 
             testID='btnLigar'
             style={liga ? {backgroundColor: '#7f7'} : {backgroundColor: '#f33'}}
-            onPress={switchLigar}
+            onPress={onoff}
           >
-          <TextoComum
-          
-          >{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>
+          {/*<TextoComum>{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>*/}
+          <TextoComum>BTN</TextoComum>
         </LigaDesliga>
       </Circulo>
       <Botao
@@ -51,3 +51,4 @@ export default function Monitoramento(props) {
     </Container>
   );
 }
+// onPress={onoff /*switchLigar*}
