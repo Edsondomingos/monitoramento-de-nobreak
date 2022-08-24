@@ -29,64 +29,71 @@ const client = new Paho.Client(
 
 client.connect({
     onSuccess: function () {
-        console.log("Tensão bateria conectada")
+        console.log("conectado")
         client.subscribe("nobreak")
+        // client.subscribe("rede")
         const message1 = new Paho.Message("12.5")
         message1.destinationName = "nobreak"
         client.send(message1)
-    },
-    onFailure: function () {
-        console.log("Falhou")
-    },
-})
 
-const clientRede = new Paho.Client(
-    'broker.emqx.io',
-    8083,
-    '/'
-)
-
-clientRede.connect({
-    onSuccess: function () {
-        console.log("Rede Conectada")
-        clientRede.subscribe("rede")
+        client.subscribe("rede")
         const message2 = new Paho.Message("0")
         message2.destinationName = "rede"
-        clientRede.send(message2)
+        client.send(message2)
     },
     onFailure: function () {
         console.log("Falhou")
     },
 })
 
-const clientLiga = new Paho.Client(
-    'broker.emqx.io',
-    8083,
-    '/'
-)
+// const clientRede = new Paho.Client(
+//     'broker.emqx.io',
+//     8083,
+//     '/'
+// )
 
-clientLiga.connect({
-    onSuccess: function () {
-        console.log("Liga Conectada")
-        clientLiga.subscribe("liga")
-        const message3 = new Paho.Message("on")
-        message3.destinationName = "liga"
-        clientRede.send(message3)
-    },
-    onFailure: function () {
-        console.log("Falhou")
-    },
-})
+// clientRede.connect({
+//     onSuccess: function () {
+//         console.log("Rede Conectada")
+//         clientRede.subscribe("rede")
+//         const message2 = new Paho.Message("0")
+//         message2.destinationName = "rede"
+//         clientRede.send(message2)
+        
+//     },
+//     onFailure: function () {
+//         console.log("Falhou")
+//     },
+// })
+
+// const clientLiga = new Paho.Client(
+//     'broker.emqx.io',
+//     8083,
+//     '/'
+// )
+
+// clientLiga.connect({
+//     onSuccess: function () {
+//         console.log("Liga Conectada")
+//         clientLiga.subscribe("liga")
+//         const message3 = new Paho.Message("on")
+//         message3.destinationName = "liga"
+//         clientRede.send(message3)
+//     },
+//     onFailure: function () {
+//         console.log("Falhou")
+//     },
+// })
 
     
 
-export function onoff(){
-    clientLiga.subscribe("liga")
-    const rele = new Paho.Message("on")
-    rele.destinationName = "liga"
-    client.send(rele)
+// export function onoff(){
+//     clientLiga.subscribe("liga")
+//     const rele = new Paho.Message("on")
+//     rele.destinationName = "liga"
+//     client.send(rele)
 
-}
+// }
 
 const porcentagem = (msg) => {    
     let valor = parseFloat(msg)
@@ -98,46 +105,60 @@ const porcentagem = (msg) => {
     }
 }
 
+// console.log(client.onMessageArrived =  (message) => message)
 export function App() {
-
+    
     const [msg, setMsg] = useState('')
+    const [rede, setRede] = useState('')
 
     client.onMessageArrived = function (message) {
         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString)
-        topico = message.destinationName
-        // if (topico == 'nobreak'){
-            mensagem = message.payloadString;
-            setMsg(mensagem)
-        // }
+        // topico = 
+        
+        if (message.destinationName == 'nobreak'){
+            // mensagem = message.payloadString;
+            setMsg(message.payloadString)
+        }
+        if (message.destinationName == 'rede'){
+            // redeValue = message.payloadString;
+            setRede(message.payloadString)
+            // Red(message.payloadString)
+            redeValue = message.payloadString
+        }
     }     
     
     return (
         <View>
-            <Text>{mensagem}v</Text>
-            <Text>{porcentagem(mensagem)}</Text>
+            <Text>{msg}v</Text>
+            <Text>{porcentagem(msg)}</Text>
+            <Text>{rede}</Text>
         </View>
         
     )
 }
 
-export function Red(){
+export function Red(valor){
 
-    const [rede, setRede] = useState()
+    const [rede, setRede] = useState('')
 
-    clientRede.onMessageArrived = function (message) {
-        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-        topico = message.destinationName
+    // clientRede.onMessageArrived = function (message) {
+    //     console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
+    //     topico = message.destinationName
         // if (topico == 'rede'){
-            redeValue = message.payloadString;
-            setRede(redeValue)
+        //     redeValue = message.payloadString;
+        //     setRede(redeValue)
+        //     console.log('Red')
         // }
-    }  
-    
+    // }  
+    // console.log('Red')
     return (
         <View>
             <Text>
-                {rede == 1 ? 'Conectado a Tomada':'Fora da tomada'}                
+                {valor == '1' ? 'Conectado a Tomada':'Fora da tomada'}                
+                {typeof rede}
+                
             </Text>
         </View>
     )
 }
+ 
