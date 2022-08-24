@@ -55,7 +55,7 @@ export default (props) => {
       <Botao testID='btn' onPress={atualizar} >
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
-      <Text>{'\n\n\n\n\n\n\n'}</Text>
+      <Text>{'\n\n\n\n\n'}</Text>
       <Button title='Listar Dados' onPress={listar} />
       {/*<Text>{'\n\n'}</Text>
       <Text>LISTA DE DADOS</Text>*/}

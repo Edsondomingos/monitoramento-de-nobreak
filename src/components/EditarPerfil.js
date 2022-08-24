@@ -38,7 +38,7 @@ export default (props) => {
             telefone: telefone
         }).then(() => {
             alert("Editado");
-            //props.navigation.navigate('Menu');
+            props.navigation.navigate('Menu');
         }).catch((error) => {
             alert(error)
         })

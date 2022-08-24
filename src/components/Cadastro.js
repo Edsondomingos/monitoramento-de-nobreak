@@ -47,8 +47,8 @@ export default (props) => {
         //await addDoc(collection(db, "contatos"), {
         addDoc(collection(db, 'usuarios'), {
             nome: nome,
-            //senha: senha,
-            //email: email,
+            senha: senha,
+            email: email,
             telefone: telefone,
             cpf: cpf
           }).then(() => {

@@ -1,11 +1,11 @@
 import * as React from 'react';
-// import Tela_escolha from './src/components/Tela_escolha';
 // import Menu from './src/components/Menu';
 //import Teste from './src/components/TesteMQTT'
-import Monitoramento from './src/components/Monitoramento';
-
+//import Monitoramento from './src/components/Monitoramento';
+import Login from './src/components/Login';
+import Tela_escolha from './src/components/Tela_escolha';
 export default function App() {
   return (
-      <Monitoramento />
+      <Tela_escolha />
   )
 }
