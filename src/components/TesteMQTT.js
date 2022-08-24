@@ -29,34 +29,30 @@ const client = new Paho.Client(
 
 client.connect({
     onSuccess: function () {
-        console.log("connected")
+        console.log("Tensão bateria conectada")
         client.subscribe("nobreak")
-        // client.subscribe("rede")
         const message1 = new Paho.Message("12.5")
         message1.destinationName = "nobreak"
         client.send(message1)
-        // const message2 = new Paho.Message("1")
-        // message2.destinationName = "rede"
-        // client.send(message2)
-        // mensagem = message1
-        // redeValue = message2
     },
     onFailure: function () {
         console.log("Falhou")
     },
 })
 
+const clientRede = new Paho.Client(
+    'broker.emqx.io',
+    8083,
+    '/'
+)
+
 clientRede.connect({
     onSuccess: function () {
-        console.log("connected")
-        // client.subscribe("nobreak")
-        client.subscribe("rede")
-        // const message1 = new Paho.Message("12.5")
-        // message1.destinationName = "nobreak"
-        // client.send(message1)
-        const message2 = new Paho.Message("1")
+        console.log("Rede Conectada")
+        clientRede.subscribe("rede")
+        const message2 = new Paho.Message("0")
         message2.destinationName = "rede"
-        client.send(message2)
+        clientRede.send(message2)
     },
     onFailure: function () {
         console.log("Falhou")
@@ -64,12 +60,6 @@ clientRede.connect({
 })
 
     
-// TESTAR CRIAR CLIENT2 para RECEBE TOPICO DIFERENTE
-const clientRede = new Paho.Client(
-    'broker.emqx.io',
-    8083,
-    '/'
-)
 
 export function onoff(){
     client.subscribe("liga")
@@ -78,40 +68,6 @@ export function onoff(){
     client.send(rele)
 
 }
-
-// export function recebe() {
-    // console.log(client.onMessageArrived.message.payloadString)
-// export const recebe = client.onMessageArrived = function (message) {
-//     topico = message.topic;
-//     console.log('onMessageArrived')
-//     if (topico == 'nobreak'){
-//         mensagem = message.payloadString;
-//     }
-//     if (topico == 'rede'){
-//         redeValue = message.payloadString;
-//     }
-//     console.log(mensagem, redeValue)
-// }
-// }
-// client.onMessageArrived = (message) => message.topic == 'liga' ? console.log(message.payloadString) : console.log('Erro')
-
-// function pegaDados(){
-//     client.onMessageArrived = function (message) {
-//         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-//         // topico = message.destinationName;
-//         topico = message.topic;
-//         console.log(message)
-//         if (topico == 'nobreak'){
-//             mensagem = message.payloadString;
-//             // setmsg(mensagem)
-//         }
-//         if (topico == 'rede'){
-//             redeValue = message.payloadString;
-//             // setRede(redeValue)
-//         }
-//         return message.payloadString
-//     } 
-// }
 
 const porcentagem = (msg) => {    
     let valor = parseFloat(msg)
@@ -125,74 +81,43 @@ const porcentagem = (msg) => {
 
 export function App() {
 
-    const [msg, setmsg] = useState('')
-    const [rede, setRede] = useState()
+    const [msg, setMsg] = useState('')
 
     client.onMessageArrived = function (message) {
-        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-        // topico = message.destinationName;
-        topico = message.topic;
-        // console.log(message)
-        // console.log('Topico->', topico)
-        // console.log('APP ^')
-        if (topico == 'nobreak'){
+        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString)
+        topico = message.destinationName
+        // if (topico == 'nobreak'){
             mensagem = message.payloadString;
-            setmsg(mensagem)
-        } 
-        // if (topico == 'rede'){
-        //     redeValue = message.payloadString;
-        //     setRede(redeValue)
-        //     Red(redeValue)
-        //     console.log(typeof redeValue)
+            setMsg(mensagem)
         // }
-    }    
-    
-    clientRede.onMessageArrived = function (message) {
-        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-        // topico = message.destinationName;
-        topico = message.topic;
-        if (topico == 'rede'){
-            redeValue = message.payloadString;
-            setRede(redeValue)
-            Red(redeValue)
-            console.log(typeof redeValue)
-        }
-    }  
+    }     
     
     return (
         <View>
             <Text>{mensagem}v</Text>
             <Text>{porcentagem(mensagem)}</Text>
-            <Text>{redeValue}</Text>
-            <Text>{console.log('Dentro de App: ',mensagem, redeValue)}</Text>
         </View>
         
     )
 }
 
-export function Red(ligado){
-    // console.log('topo de REDE')
+export function Red(){
 
     const [rede, setRede] = useState()
-    // let [teste, setTeste] = useState()
 
-    // client.onMessageArrived = function (message) {
-    //     console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-    //     topico = message.topic;
-    //     console.log('REDE ')
+    clientRede.onMessageArrived = function (message) {
+        console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
+        topico = message.destinationName
         // if (topico == 'rede'){
-        //     redeValue = message.payloadString;
-        //     setRede(rede)
-            // setTeste(typeof redeValue)
+            redeValue = message.payloadString;
+            setRede(redeValue)
         // }
-    // }  
+    }  
     
     return (
         <View>
             <Text>
-                {parseInt(ligado) == 0 ? 'Conectado a Tomada':'Fora da tomada'}
-                {typeof parseInt(ligado)}
-                
+                {rede == 1 ? 'Conectado a Tomada':'Fora da tomada'}                
             </Text>
         </View>
     )

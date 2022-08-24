@@ -31,7 +31,7 @@ export default (props) => {
     if (auth.currentUser) {
       alert(auth.currentUser.email);
     } else {
-      alert('Não tem nenhum uruário autenticado!');
+      alert('Não tem nenhum usuário autenticado!');
     }
   }
 
