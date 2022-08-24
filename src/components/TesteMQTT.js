@@ -19,7 +19,7 @@ const client = new Paho.Client(
     'broker.emqx.io',
     8083,
     '/'
-    )
+)
 
 // const client = new Paho.Client(
 //     '10.44.1.35',
@@ -59,10 +59,29 @@ clientRede.connect({
     },
 })
 
+const clientLiga = new Paho.Client(
+    'broker.emqx.io',
+    8083,
+    '/'
+)
+
+clientLiga.connect({
+    onSuccess: function () {
+        console.log("Liga Conectada")
+        clientLiga.subscribe("liga")
+        const message3 = new Paho.Message("on")
+        message3.destinationName = "liga"
+        clientRede.send(message3)
+    },
+    onFailure: function () {
+        console.log("Falhou")
+    },
+})
+
     
 
 export function onoff(){
-    client.subscribe("liga")
+    clientLiga.subscribe("liga")
     const rele = new Paho.Message("on")
     rele.destinationName = "liga"
     client.send(rele)
