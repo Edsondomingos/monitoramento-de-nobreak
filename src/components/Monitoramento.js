@@ -8,40 +8,21 @@ export default function Monitoramento(props) {
 
   const [liga, setLigar] = useState(false);
   const [nome, setNome] = useState('Nome do Nobreak')
-  const [nivel, setNivel] = useState(50)
  
-  function switchLigar() {
-    setLigar(!liga);
-  }
+  // function switchLigar() {
+  //   setLigar(!liga)
+  //   onoff()
+  // }
 
   return (
     <Container>
       
   
       <Titulo>{nome}</Titulo>  
-      
-      <Circulo>
-        <TextoComum>Uso de Energia</TextoComum>
-        <Red />
-        <TextoComum></TextoComum>
-      </Circulo>
-      
-      
-      <Circulo> 
-        <TextoComum>Bateria</TextoComum>     
-        <TextoComum><App /></TextoComum>
-      </Circulo>
 
-      <Circulo>
-        <LigaDesliga 
-            testID='btnLigar'
-            style={liga ? {backgroundColor: '#7f7'} : {backgroundColor: '#f33'}}
-            onPress={onoff}
-          >
-          {/*<TextoComum>{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>*/}
-          <TextoComum>BTN</TextoComum>
-        </LigaDesliga>
-      </Circulo>
+      <App />     
+
+      
       <Botao
         onPress={() => props.navigation.navigate('EditarNobreak')}
       >
@@ -51,4 +32,3 @@ export default function Monitoramento(props) {
     </Container>
   );
 }
-// onPress={onoff /*switchLigar*}

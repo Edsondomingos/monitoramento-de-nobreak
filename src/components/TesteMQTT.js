@@ -1,11 +1,13 @@
 import * as React from 'react'
 import { useState } from "react"
+import { Container, Titulo, TextoComum, Botao, Circulo, LigaDesliga, TextoBtn } from '../../assets/styledComponents/Components'
 import { View, Text} from "react-native"
 import Paho from "paho-mqtt"
 
 var topico;
 var mensagem;
 var redeValue
+let ligar
 
 // const ssid = "wIFRN-IoT";
 // const  password = "deviceiotifrn";
@@ -40,6 +42,12 @@ client.connect({
         const message2 = new Paho.Message("0")
         message2.destinationName = "rede"
         client.send(message2)
+
+        client.subscribe("liga")
+        // Se comecar off, deve setar false para liga(useState)
+        const message3 = new Paho.Message("on") 
+        message3.destinationName = "liga"
+        client.send(message3)
     },
     onFailure: function () {
         console.log("Falhou")
@@ -87,13 +95,18 @@ client.connect({
 
     
 
-// export function onoff(){
-//     clientLiga.subscribe("liga")
-//     const rele = new Paho.Message("on")
-//     rele.destinationName = "liga"
-//     client.send(rele)
-
-// }
+export function onoff(valor){
+    if (valor == true){
+        valor = 'on'
+    } else {
+        valor = 'off'
+    }
+    client.subscribe("liga")
+    const rele = new Paho.Message(valor)
+    rele.destinationName = "liga"
+    client.send(rele)
+    ligar = !ligar
+}
 
 const porcentagem = (msg) => {    
     let valor = parseFloat(msg)
@@ -110,55 +123,78 @@ export function App() {
     
     const [msg, setMsg] = useState('')
     const [rede, setRede] = useState('')
+    const [liga, setLiga] = useState(true)
 
     client.onMessageArrived = function (message) {
         console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString)
-        // topico = 
-        
+         
         if (message.destinationName == 'nobreak'){
-            // mensagem = message.payloadString;
             setMsg(message.payloadString)
         }
         if (message.destinationName == 'rede'){
-            // redeValue = message.payloadString;
             setRede(message.payloadString)
-            // Red(message.payloadString)
-            redeValue = message.payloadString
         }
-    }     
-    
-    return (
-        <View>
-            <Text>{msg}v</Text>
-            <Text>{porcentagem(msg)}</Text>
-            <Text>{rede}</Text>
-        </View>
+        if (message.destinationName == 'liga'){
+            if (message.payloadString == 'on'){
+                setLiga(true)
+                ligar = true
+            } else if (message.payloadString == 'off'){
+                setLiga(false)
+                ligar = false
+            }
+        }
         
-    )
-}
-
-export function Red(valor){
-
-    const [rede, setRede] = useState('')
-
-    // clientRede.onMessageArrived = function (message) {
-    //     console.log('Topic: ' + message.destinationName + ", Message: " + message.payloadString);
-    //     topico = message.destinationName
-        // if (topico == 'rede'){
-        //     redeValue = message.payloadString;
-        //     setRede(redeValue)
-        //     console.log('Red')
-        // }
-    // }  
-    // console.log('Red')
+    }     
+    // return msg + rede
+    // return (
+    //     <View>
+    //         <Text>{msg}v</Text>
+    //         <Text>{porcentagem(msg)}</Text>
+    //         <Text>{rede}</Text>
+    //     </View>
+        
+    // )
     return (
-        <View>
-            <Text>
-                {valor == '1' ? 'Conectado a Tomada':'Fora da tomada'}                
-                {typeof rede}
-                
-            </Text>
-        </View>
+        <>
+            <Circulo>
+                <TextoComum>Uso de Energia</TextoComum>        
+                <TextoComum>{rede == '1' ? 'Conectado a Tomada':'Fora da tomada'}</TextoComum>
+            </Circulo>
+            
+            
+            <Circulo> 
+                <TextoComum>Bateria</TextoComum>     
+                <TextoComum>{msg}v</TextoComum>
+                <TextoComum>{porcentagem(msg)}</TextoComum>
+            </Circulo>
+
+            <Circulo>
+                <LigaDesliga 
+                    testID='btnLigar'
+                    style={liga ? {backgroundColor: '#7f7'} : {backgroundColor: '#f33'}}
+                    onPress={() => onoff(!liga)}
+                >
+                <TextoComum>{liga ? 'LIGADO' : 'DESLIGADO'}</TextoComum>
+                {/*<TextoComum>BTN</TextoComum>*/}
+                </LigaDesliga>
+            </Circulo>
+        </>
     )
 }
+
+// export function Red(){
+
+//     const [rede, setRede] = useState('')
+//     console.log('fim app',App(),'<-')
+//     redeValue = App().substring(4)
+//     return (
+//         <View>
+//             <Text>
+//                 {rede == '1' ? 'Conectado a Tomada':'Fora da tomada'}                
+//                 {typeof rede}
+//                 {redeValue}
+//             </Text>
+//         </View>
+//     )
+// }
  

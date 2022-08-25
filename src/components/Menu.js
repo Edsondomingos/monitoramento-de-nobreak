@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, View, Text, FlatList, TextInput } from "react-native";
-import { Container, Botao, TextoBtn, MiniContainer } from "../../assets/styledComponents/Components";
+import { Button, View, Text, FlatList, TextInput, ImageBackground } from "react-native";
+import { Container, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone } from "../../assets/styledComponents/Components";
 import { db } from '../Config/firebaseconfig';
 import { app } from '../Config/firebaseconfig';
-//import { useState } from "react";
 import { doc, collection, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
 import { getAuth, signOut } from "firebase/auth"
 
@@ -53,15 +52,8 @@ export default (props) => {
 
   return (
     <Container >
-      <MiniContainer style={{ flexDirection: "row" }}>
-        <Botao onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
-          <TextoBtn>Editar Perfil</TextoBtn>
-        </Botao>
-        <Botao onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} >
-         <TextoBtn>Cadastrar Nobreak</TextoBtn>
-        
-        </Botao>
-      </MiniContainer>
+      
+      <Container>
       <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
         <TextoBtn>Monitoramento</TextoBtn>
       </Botao>
@@ -73,12 +65,40 @@ export default (props) => {
 
       {/* <Text>{'\n\n\n\n\n\n\n'}</Text> */}
 
-      <Botao onPress={desconectar} >
-      <TextoBtn>Logout</TextoBtn>
-      </Botao>
+      
       {/*<Button color={'#00FF99'} title="Ir para Cadastro" onPress={() => { props.navigation.navigate("Cadastro"); }} />
       <Button color={'#00FF99'} title="Ir para Cadastro de Nobreak" onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} />*/}
       {/*<Button color='red' title="Voltar" onPress={() => { props.navigation.goBack() }} /> keyboardType='number-pad' */}
+      </Container>
+      <MiniContainer style={{ flexDirection: "row" }}>
+        <ImageBackground 
+            source={require('../../img/user.png')}
+            style={{width: '32%'}}
+            >
+          <BotaoIcone onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
+            <TextoBtn></TextoBtn>
+          </BotaoIcone>
+        </ImageBackground>
+
+        <ImageBackground 
+            source={require('../../img/novo.png')}
+            style={{width: '32%'}}
+          >
+          <BotaoIcone onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} >
+          <TextoBtn></TextoBtn>
+          
+          </BotaoIcone>
+        </ImageBackground>
+
+          <ImageBackground 
+            source={require('../../img/sair.png')}
+            style={{width: '32%'}}
+            >
+          <BotaoIcone onPress={desconectar} >
+            <TextoBtn></TextoBtn>
+          </BotaoIcone>
+        </ImageBackground>
+    </MiniContainer>
     </Container>
   )
 }
