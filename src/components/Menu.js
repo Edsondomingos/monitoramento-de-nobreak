@@ -6,6 +6,17 @@ import { app } from '../Config/firebaseconfig';
 import { doc, collection, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
 import { getAuth, signOut } from "firebase/auth"
 
+// Ver quantidade de verificações
+let teste = []
+async function listar(){
+  const nobreakCol = collection(db, 'nobreak');
+  const nobreakSnapshot = await getDocs(nobreakCol);
+  const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  teste = {nobreakList};
+}
+
+// listar()
+
 export default (props) => {
 
   const [codigo, setCodigo] = useState('')
@@ -13,13 +24,6 @@ export default (props) => {
   const [nobreak, setNobreak] = useState([{}])
   const [idContato, setIdContato] = useState('')
 
-  async function listar(){
-    const nobreakCol = collection(db, 'nobreak');
-    const nobreakSnapshot = await getDocs(nobreakCol);
-    const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setNobreak(nobreakList);
-}
-listar()
 
   function desconectar() {
     const auth = getAuth(db);
@@ -65,7 +69,7 @@ listar()
           data={nobreak}
           renderItem={({item}) =>
           <Botao
-            onPress={() => props.navigation.navigate('Monitoramento',{cod:item.codigo})}
+            onPress={() => props.navigation.navigate('Monitoramento',{cod: item.codigo})}
           >
               <Text>codigo: {item.codigo} - mac: {item.mac}</Text>
               
@@ -73,11 +77,12 @@ listar()
       }
       />
       
-      <Container>
+      {/*<Container>
       <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
         <TextoBtn>Monitoramento</TextoBtn>
       </Botao>
-      {/* <Botao onPress={() => { props.navigation.navigate("Login"); }} > */}
+
+       <Botao onPress={() => { props.navigation.navigate("Login"); }} > */}
         {/* <TextoBtn>Login</TextoBtn> 
       </Botao>
      {/* <Button title="Verificar Autenticação" onPress={verificar} 
@@ -88,23 +93,25 @@ listar()
       
       {/*<Button color={'#00FF99'} title="Ir para Cadastro" onPress={() => { props.navigation.navigate("Cadastro"); }} />
       <Button color={'#00FF99'} title="Ir para Cadastro de Nobreak" onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} />*/}
-      {/*<Button color='red' title="Voltar" onPress={() => { props.navigation.goBack() }} /> keyboardType='number-pad' */}
-      </Container>
+      {/*<Button color='red' title="Voltar" onPress={() => { props.navigation.goBack() }} /> keyboardType='number-pad' 
+      </Container>*/}
       <MiniContainer>
         <ImageBackground 
             source={require('../../img/user.png')}
             style={{width: '32%'}}
+            onPress={() => { props.navigation.navigate("EditarPerfil"); }}
             >
-          <BotaoIcone onPress={() => { props.navigation.navigate("EditarPerfil"); }} >
+          <BotaoIcone>
             <TextoBtn></TextoBtn>
           </BotaoIcone>
         </ImageBackground>
-
+        {/*<Image source={require('../../img/user.png')} style={{ width: 50, height: 50 }} onPress={() => { props.navigation.navigate("EditarPerfil"); }}/>*/}
         <ImageBackground 
             source={require('../../img/novo.png')}
             style={{width: '32%'}}
+            onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }}
           >
-          <BotaoIcone onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} >
+          <BotaoIcone>
           <TextoBtn></TextoBtn>          
           </BotaoIcone>
         </ImageBackground>
