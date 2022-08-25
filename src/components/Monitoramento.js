@@ -9,10 +9,7 @@ export default function Monitoramento(props) {
   const [liga, setLigar] = useState(false);
   const [nome, setNome] = useState('Nome do Nobreak')
  
-  // function switchLigar() {
-  //   setLigar(!liga)
-  //   onoff()
-  // }
+  setNome(props.route.params.cod)
 
   return (
     <Container>

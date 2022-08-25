@@ -12,8 +12,8 @@ export const Container = styled.View`
 
 export const MiniContainer = styled.View`
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     // background-color: #fff;
     // background-color: #000;
@@ -80,7 +80,7 @@ export const BotaoIcone = styled.TouchableHighlight`
     border-radius: 10px;
     width: 30%;
     height: 50px;
-    margin: 0 10px;
+    margin: 0 auto;
     // background-color: #4763ff;
     display: flex;
     justify-content: center;

@@ -3,6 +3,7 @@ import {ImageBackground} from 'react-native'
 import { useState } from 'react';
 import { Container, Titulo, TextoBtn, TextoComum, Botao, Entrada } from '../../assets/styledComponents/Components'
 import { app } from '../Config/firebaseconfig';
+import { db } from '../Config/firebaseconfig';
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default (props) => {
@@ -17,7 +18,7 @@ export default (props) => {
       }*/
 
     function autenticar() {
-        const auth = getAuth(app);
+        const auth = getAuth(db);
         signInWithEmailAndPassword(auth, email, senha)
           .then((userCredential) => {
             // Signed in
@@ -42,10 +43,12 @@ export default (props) => {
             <Titulo>Login</Titulo>
             
             <Entrada 
-                placeholder='Digite seu email' onChangeText={setEmail}
+                placeholder='Digite seu email' 
+                onChangeText={setEmail}
             />
             <Entrada 
-                placeholder='Digite sua senha' onChangeText={setSenha}
+                placeholder='Digite sua senha' 
+                onChangeText={setSenha}
                 secureTextEntry={true}
             />
             <Botao

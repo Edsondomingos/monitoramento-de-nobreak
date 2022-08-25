@@ -24,7 +24,7 @@ export default (props) => {
     const [telefone, setTelefone] = useState('')
     
     function cadastrarusu() {
-      const auth = getAuth(app);
+      const auth = getAuth(db);
       createUserWithEmailAndPassword(auth, email, senha)
         .then((userCredential) => {
           // Signed in

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, View, Text, FlatList, TextInput, ImageBackground } from "react-native";
+import { Button, View, Text, FlatList, TextInput, ImageBackground, Image } from "react-native";
 import { Container, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone } from "../../assets/styledComponents/Components";
 import { db } from '../Config/firebaseconfig';
 import { app } from '../Config/firebaseconfig';
@@ -13,8 +13,16 @@ export default (props) => {
   const [nobreak, setNobreak] = useState([{}])
   const [idContato, setIdContato] = useState('')
 
+  async function listar(){
+    const nobreakCol = collection(db, 'nobreak');
+    const nobreakSnapshot = await getDocs(nobreakCol);
+    const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    setNobreak(nobreakList);
+}
+listar()
+
   function desconectar() {
-    const auth = getAuth(app);
+    const auth = getAuth(db);
     signOut(auth).then(() => {
       // Sign-out successful.
       alert('Desconectado!')
@@ -26,7 +34,7 @@ export default (props) => {
   }
 
   function verificar() {
-    const auth = getAuth(app);
+    const auth = getAuth(db);
     if (auth.currentUser) {
       alert(auth.currentUser.email);
     } else {
@@ -52,6 +60,18 @@ export default (props) => {
 
   return (
     <Container >
+
+      <FlatList
+          data={nobreak}
+          renderItem={({item}) =>
+          <Botao
+            onPress={() => props.navigation.navigate('Monitoramento',{cod:item.codigo})}
+          >
+              <Text>codigo: {item.codigo} - mac: {item.mac}</Text>
+              
+          </Botao>
+      }
+      />
       
       <Container>
       <Botao onPress={() => { props.navigation.navigate("Monitoramento"); }}>
@@ -70,7 +90,7 @@ export default (props) => {
       <Button color={'#00FF99'} title="Ir para Cadastro de Nobreak" onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} />*/}
       {/*<Button color='red' title="Voltar" onPress={() => { props.navigation.goBack() }} /> keyboardType='number-pad' */}
       </Container>
-      <MiniContainer style={{ flexDirection: "row" }}>
+      <MiniContainer>
         <ImageBackground 
             source={require('../../img/user.png')}
             style={{width: '32%'}}
@@ -85,8 +105,7 @@ export default (props) => {
             style={{width: '32%'}}
           >
           <BotaoIcone onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }} >
-          <TextoBtn></TextoBtn>
-          
+          <TextoBtn></TextoBtn>          
           </BotaoIcone>
         </ImageBackground>
 
@@ -98,7 +117,8 @@ export default (props) => {
             <TextoBtn></TextoBtn>
           </BotaoIcone>
         </ImageBackground>
-    </MiniContainer>
+
+      </MiniContainer>
     </Container>
   )
 }
