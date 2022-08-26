@@ -9,12 +9,12 @@ export default function Monitoramento(props) {
   const [nome, setNome] = useState('Nome do Nobreak')
  
   
-
+//{props.route.params.cod}
   return (
     <Container>
       
   
-      <Titulo>{props.route.params.cod}</Titulo>
+      <Titulo></Titulo>
 
       <App />     
 

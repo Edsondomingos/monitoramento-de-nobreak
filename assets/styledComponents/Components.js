@@ -40,7 +40,7 @@ export const Titulo = styled.Text`
 
 export const TextoComum = styled.Text`
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #000;
     margin: 10px 0;
 `;

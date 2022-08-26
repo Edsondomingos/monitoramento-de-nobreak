@@ -59,41 +59,7 @@ client.connect({
 //     8083,
 //     '/'
 // )
-
-// clientRede.connect({
-//     onSuccess: function () {
-//         console.log("Rede Conectada")
-//         clientRede.subscribe("rede")
-//         const message2 = new Paho.Message("0")
-//         message2.destinationName = "rede"
-//         clientRede.send(message2)
-        
-//     },
-//     onFailure: function () {
-//         console.log("Falhou")
-//     },
-// })
-
-// const clientLiga = new Paho.Client(
-//     'broker.emqx.io',
-//     8083,
-//     '/'
-// )
-
-// clientLiga.connect({
-//     onSuccess: function () {
-//         console.log("Liga Conectada")
-//         clientLiga.subscribe("liga")
-//         const message3 = new Paho.Message("on")
-//         message3.destinationName = "liga"
-//         clientRede.send(message3)
-//     },
-//     onFailure: function () {
-//         console.log("Falhou")
-//     },
-// })
-
-    
+   
 
 export function onoff(valor){
     if (valor == true){
@@ -144,16 +110,8 @@ export function App() {
             }
         }
         
-    }     
-    // return msg + rede
-    // return (
-    //     <View>
-    //         <Text>{msg}v</Text>
-    //         <Text>{porcentagem(msg)}</Text>
-    //         <Text>{rede}</Text>
-    //     </View>
-        
-    // )
+    } 
+    
     return (
         <>
             <Circulo>

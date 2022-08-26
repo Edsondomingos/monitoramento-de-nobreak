@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import { Button, View, Text, FlatList, TextInput, ImageBackground, Image } from "react-native";
-import { Container, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone } from "../../assets/styledComponents/Components";
+import { Container, Titulo, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone } from "../../assets/styledComponents/Components";
 import { db } from '../Config/firebaseconfig';
 import { app } from '../Config/firebaseconfig';
 import { doc, collection, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
 import { getAuth, signOut } from "firebase/auth"
 
 // Ver quantidade de verificações
-let teste = []
-async function listar(){
-  const nobreakCol = collection(db, 'nobreak');
-  const nobreakSnapshot = await getDocs(nobreakCol);
-  const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-  teste = {nobreakList};
-}
+// let teste = []
+// async function listar(){
+//   const nobreakCol = collection(db, 'nobreak');
+//   const nobreakSnapshot = await getDocs(nobreakCol);
+//   const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+//   teste = {nobreakList};
+// }
 
 // listar()
 
@@ -64,14 +64,14 @@ export default (props) => {
 
   return (
     <Container >
-
+        <Titulo>Nobreaks Cadastrados</Titulo>
       <FlatList
           data={nobreak}
           renderItem={({item}) =>
           <Botao
             onPress={() => props.navigation.navigate('Monitoramento',{cod: item.codigo})}
           >
-              <Text>codigo: {item.codigo} - mac: {item.mac}</Text>
+              <TextoBtn>codigo: {item.codigo} - mac: {item.mac}</TextoBtn>
               
           </Botao>
       }
@@ -96,34 +96,22 @@ export default (props) => {
       {/*<Button color='red' title="Voltar" onPress={() => { props.navigation.goBack() }} /> keyboardType='number-pad' 
       </Container>*/}
       <MiniContainer>
-        <ImageBackground 
-            source={require('../../img/user.png')}
-            style={{width: '32%'}}
-            onPress={() => { props.navigation.navigate("EditarPerfil"); }}
-            >
-          <BotaoIcone>
-            <TextoBtn></TextoBtn>
-          </BotaoIcone>
-        </ImageBackground>
-        {/*<Image source={require('../../img/user.png')} style={{ width: 50, height: 50 }} onPress={() => { props.navigation.navigate("EditarPerfil"); }}/>*/}
-        <ImageBackground 
-            source={require('../../img/novo.png')}
-            style={{width: '32%'}}
-            onPress={() => { props.navigation.navigate("Cadastrar_Nobreak"); }}
+      <BotaoIcone
+            onPress={() => props.navigation.navigate('EditarPerfil')}
           >
-          <BotaoIcone>
-          <TextoBtn></TextoBtn>          
+            <Image source={require('../../img/user.png')} style={{ width: 50, height: 50 }} />        
           </BotaoIcone>
-        </ImageBackground>
 
-          <ImageBackground 
-            source={require('../../img/sair.png')}
-            style={{width: '32%'}}
-            >
-          <BotaoIcone onPress={desconectar} >
-            <TextoBtn></TextoBtn>
+ 
+          <BotaoIcone
+            onPress={() => props.navigation.navigate('Cadastrar_Nobreak')}
+          >
+            <Image source={require('../../img/novo3.ico')} style={{ width: 50, height: 50 }} />        
           </BotaoIcone>
-        </ImageBackground>
+ 
+          <BotaoIcone onPress={desconectar} >
+            <Image source={require('../../img/sair.png')} style={{ width: 50, height: 50 }} />      
+          </BotaoIcone>
 
       </MiniContainer>
     </Container>
