@@ -1,0 +1,8 @@
+Falta:
+
+Testes
+Estilo e Reponsividade
+
+Comunicação com nobreak - Falta ligar/desligar
+
+Documento
