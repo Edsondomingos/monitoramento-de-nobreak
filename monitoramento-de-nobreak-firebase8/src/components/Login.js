@@ -2,38 +2,27 @@ import * as React from 'react'
 import {ImageBackground} from 'react-native'
 import { useState } from 'react';
 import { Container, Titulo, TextoBtn, TextoComum, Botao, Entrada } from '../../assets/styledComponents/Components'
-import { app } from '../Config/firebaseconfig';
-import { db } from '../Config/firebaseconfig';
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import firebase from '../Config/firebaseconfig';
+// import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 export default (props) => {
 
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
-    /*const entrar = () => {
-        console.log('Entrou');
-        console.log(email);
-        console.log(senha);
-      }*/
-
-    function autenticar() {
-        const auth = getAuth(db);
-        signInWithEmailAndPassword(auth, email, senha)
-          .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            // ...
-            alert('Autenticou!');
-            props.navigation.navigate("Menu")
-          })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            //menssagem de alerta
-            alert(errorMessage)
-          });
-      }    
+    const loginFirebase = ()=>{
+        firebase.auth().signInWithEmailAndPassword(email, senha)
+        .then((userCredential) => {
+            let user = userCredential.user;
+            props.navigation.navigate("Menu", {idUser: user.uid})
+        })
+        .catch((error) => {
+            setErrorLogin(true)
+            let errorCode = error.code;
+            let errorMessage = error.message;
+            alert(error)
+        });
+    }   
 
     return (
         <Container>
@@ -45,15 +34,17 @@ export default (props) => {
             <Entrada 
                 placeholder='Digite seu email' 
                 onChangeText={setEmail}
+                value={email}
             />
             <Entrada 
                 placeholder='Digite sua senha' 
                 onChangeText={setSenha}
                 secureTextEntry={true}
+                value={senha}
             />
             <Botao
                 testID='btnEntrar'
-                onPress={autenticar}
+                onPress={loginFirebase}
             >
                 <TextoBtn>Entrar</TextoBtn>
 

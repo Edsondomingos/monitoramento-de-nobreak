@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Button, View, Text, FlatList, TextInput, ImageBackground, Image } from "react-native";
 import { Container, Titulo, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone } from "../../assets/styledComponents/Components";
-import { db } from '../Config/firebaseconfig';
-import { app } from '../Config/firebaseconfig';
-import { doc, collection, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
-import { getAuth, signOut } from "firebase/auth"
+import firebase from "../Config/firebaseconfig";
+//import { app } from '../Config/firebaseconfig';
+//import { doc, collection, deleteDoc, updateDoc, getDocs } from "firebase/firestore";
+//import { getAuth, signOut } from "firebase/auth"
 
 // Ver quantidade de verificações
 // let teste = []
@@ -19,13 +19,20 @@ import { getAuth, signOut } from "firebase/auth"
 
 export default (props) => {
 
-  const [codigo, setCodigo] = useState('')
-  const [mac, setMac] = useState('')
+ // const [codigo, setCodigo] = useState('')
+ // const [mac, setMac] = useState('')
   const [nobreak, setNobreak] = useState([{}])
-  const [idContato, setIdContato] = useState('')
+  //const [idContato, setIdContato] = useState('')
+
+const Logout = () => {
+  firebase.auth().signOut().then(() => {
+    props.navigation.navigate("Login")
+  }).catch((error) => {
+  });
+}
 
 
-  function desconectar() {
+  /*function desconectar() {
     const auth = getAuth(db);
     signOut(auth).then(() => {
       // Sign-out successful.
@@ -60,7 +67,7 @@ export default (props) => {
     setMac('');
     setIdContato('');
     listar();
-  }
+  }*/
 
   return (
     <Container >
@@ -109,7 +116,7 @@ export default (props) => {
             <Image source={require('../../img/novo3.ico')} style={{ width: 50, height: 50 }} />        
           </BotaoIcone>
  
-          <BotaoIcone onPress={desconectar} >
+          <BotaoIcone onPress={Logout} >
             <Image source={require('../../img/sair.png')} style={{ width: 50, height: 50 }} />      
           </BotaoIcone>
 
