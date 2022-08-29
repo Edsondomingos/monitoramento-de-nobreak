@@ -10,23 +10,23 @@ export default (props) => {
   const [codigo, setCodigo] = useState('');
   const [mac, setMac] = useState('');
 
-  function cadastrarno(){
-    //setDoc(doc(db, "contatos", "LA"), {
-    //await addDoc(collection(db, "contatos"), {
-    addDoc(collection(db, 'nobreak'), {
-        codigo: codigo,
-        mac: mac,
-      }).then(() => {
-        alert("Cadastrado com sucesso");
+//   function cadastrarno(){
+//     //setDoc(doc(db, "contatos", "LA"), {
+//     //await addDoc(collection(db, "contatos"), {
+//     addDoc(collection(db, 'nobreak'), {
+//         codigo: codigo,
+//         mac: mac,
+//       }).then(() => {
+//         alert("Cadastrado com sucesso");
 
-        props.navigation.navigate('Menu');
-      }).catch((error) => {
-        alert(error)
-      })
+//         props.navigation.navigate('Menu');
+//       }).catch((error) => {
+//         alert(error)
+//       })
 
-      setCodigo('');
-      setMac('');
-}
+//       setCodigo('');
+//       setMac('');
+// }
 
   return (
     <Container>
@@ -36,7 +36,7 @@ export default (props) => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastrarno} >
+      <Botao testID='btn'  >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 
@@ -44,3 +44,5 @@ export default (props) => {
     </Container>
   )
 }
+
+// onPress={cadastrarno}

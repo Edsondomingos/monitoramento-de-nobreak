@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import firebase from "firebase";
-import "firebase-storage";
+import "firebase/storage";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCJ5QsSE3ikoavnaqP93qJE_KQyYF8Xliw",

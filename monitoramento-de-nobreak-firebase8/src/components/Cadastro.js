@@ -23,44 +23,44 @@ export default (props) => {
     const [senha, setSenha] = useState('')
     const [telefone, setTelefone] = useState('')
     
-    function cadastrarusu() {
-      const auth = getAuth(db);
-      createUserWithEmailAndPassword(auth, email, senha)
-        .then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          //alert("Cadastrou");
-          setEmail('');
-          setSenha('');
-          alert("Cadastrado com sucesso");
-          props.navigation.navigate("Login");
-          // ...
-        })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          //menssagem de alerta
-          alert(errorMessage);
-          // ..
-        });
-        //setDoc(doc(db, "contatos", "LA"), {
-        //await addDoc(collection(db, "contatos"), {
-        addDoc(collection(db, 'usuarios'), {
-            nome: nome,
-            senha: senha,
-            email: email,
-            telefone: telefone,
-            cpf: cpf
-          }).then(() => {
-            //alert("Cadastrado com sucesso");
-            //props.navigation.navigate("Login");
-          });
-          //setEmail('');
-          //setSenha('');
-          //setCPF('');
-          //setNome('');
-          //setTelefone('');
-    }
+    // function cadastrarusu() {
+    //   const auth = getAuth(db);
+    //   createUserWithEmailAndPassword(auth, email, senha)
+    //     .then((userCredential) => {
+    //       // Signed in
+    //       const user = userCredential.user;
+    //       //alert("Cadastrou");
+    //       setEmail('');
+    //       setSenha('');
+    //       alert("Cadastrado com sucesso");
+    //       props.navigation.navigate("Login");
+    //       // ...
+    //     })
+    //     .catch((error) => {
+    //       const errorCode = error.code;
+    //       const errorMessage = error.message;
+    //       //menssagem de alerta
+    //       alert(errorMessage);
+    //       // ..
+    //     });
+    //     //setDoc(doc(db, "contatos", "LA"), {
+    //     //await addDoc(collection(db, "contatos"), {
+    //     addDoc(collection(db, 'usuarios'), {
+    //         nome: nome,
+    //         senha: senha,
+    //         email: email,
+    //         telefone: telefone,
+    //         cpf: cpf
+    //       }).then(() => {
+    //         //alert("Cadastrado com sucesso");
+    //         //props.navigation.navigate("Login");
+    //       });
+    //       //setEmail('');
+    //       //setSenha('');
+    //       //setCPF('');
+    //       //setNome('');
+    //       //setTelefone('');
+    // }
 
     return (
         <Container>
@@ -86,7 +86,7 @@ export default (props) => {
             />
             <Botao
                 testID='btnCriar'
-                onPress={cadastrarusu}
+                
             >
                 <TextoBtn>Criar Conta</TextoBtn>
             </Botao>
@@ -94,3 +94,4 @@ export default (props) => {
         </Container>
     )
 }
+// onPress={cadastrarusu}
