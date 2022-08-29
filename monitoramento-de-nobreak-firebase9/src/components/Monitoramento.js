@@ -14,7 +14,7 @@ export default function Monitoramento(props) {
     <Container>
       
   
-      <Titulo></Titulo>
+      <Titulo>{props.route.params.cod}</Titulo>
 
       <App />     
 
