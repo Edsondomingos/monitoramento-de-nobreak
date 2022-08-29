@@ -13,7 +13,7 @@ const Stack = createNativeStackNavigator()
 export default () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="EditarPerfil" screenOptions={{ headerShown: false }} >
+      <Stack.Navigator initialRouteName="Login" screenOptions={{ headerShown: false }} >
 
         <Stack.Screen name="Menu" component={Menu} options={{
           title: 'Menu',
