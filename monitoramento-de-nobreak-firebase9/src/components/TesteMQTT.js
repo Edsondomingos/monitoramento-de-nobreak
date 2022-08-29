@@ -116,7 +116,7 @@ export function App() {
         <>
             <Circulo>
                 <TextoComum>Uso de Energia</TextoComum>        
-                <TextoComum>{rede == '1' ? 'Conectado a Tomada':'Fora da tomada'}</TextoComum>
+                <TextoComum>{rede == '1.00' ? 'Conectado a Tomada':'Fora da tomada'}</TextoComum>
             </Circulo>
             
             
