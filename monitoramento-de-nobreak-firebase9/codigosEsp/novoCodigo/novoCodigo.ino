@@ -2,8 +2,8 @@
 #include <PubSubClient.h>
 #include <Wire.h>
 
-const int batInPin = 34;
-const int redeInPin = 35;
+const int batInPin = 34; // Cabo azul
+const int redeInPin = 35; // cabo roxo
 const int relePin = 4;
 float sensorValue = 0; 
 float tensao = 0;
@@ -48,6 +48,7 @@ void setup() {
  // publish and subscribe
  //client.publish(topic, "Hi EMQX I'm ESP32 ^^");
   client.subscribe("nobreak");
+  client.subscribe("liga");
 }
 
 void setup_wifi() {
@@ -81,6 +82,18 @@ void callback(char* topic, byte* message, unsigned int length) {
     messageTemp += (char)message[i];
   }
   Serial.println();
+
+  if (String(topic) == "liga") {
+    Serial.print("Changing output to ");
+    if(messageTemp == "on"){
+      Serial.println("on");
+      digitalWrite(relePin, HIGH);
+    }
+    else if(messageTemp == "off"){
+      Serial.println("off");
+      digitalWrite(relePin, LOW);
+    }
+  }
   
 }
 
@@ -136,5 +149,6 @@ void loop() {
   Serial.print("Rede: ");
   Serial.print(statusRede);
   client.publish("rede", redeString);
+
     
 }
