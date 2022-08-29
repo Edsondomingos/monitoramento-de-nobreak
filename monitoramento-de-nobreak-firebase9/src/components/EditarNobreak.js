@@ -12,35 +12,7 @@ export default (props) => {
   const [nobreak, setNobreak] = useState([{}])
   const [idNobreak, setIdNobreak] = useState('')
 
-  async function listar() {
-    const nobreakCol = collection(db, 'nobreak');
-    const nobreakSnapshot = await getDocs(nobreakCol);
-    const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setNobreak(nobreakList);
-  }
-  async function deletar(id_nobreak) {
-    await deleteDoc(doc(db, "nobreak", id_nobreak));
-    setCodigo('');
-    setMac('');
-    setIdNobreak('');
-    listar();
-  }
-  function atualizar() {
-    updateDoc(doc(db, 'nobreak', idNobreak), {
-      codigo: codigo,
-      mac: mac
-    }).then(() => {
-      alert("Editado");
-      props.navigation.navigate('Monitoramento');
-    }).catch((error) => {
-      alert(error)
-    })
 
-    setCodigo('');
-    setMac('');
-    setIdNobreak('');
-    listar();
-  }
 
   return (
     <Container>
@@ -52,12 +24,12 @@ export default (props) => {
       <Entrada value={codigo} placeholder='Codigo' onChangeText={setCodigo} />
       <Entrada value={mac} placeholder='Mac' onChangeText={setMac} />
 
-      <Botao testID='btn' onPress={atualizar} >
+      <Botao testID='btn'  >
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
       <Text>{'\n\n\n\n\n'}</Text>
-      <Button title='Listar Dados' onPress={listar} />
-      {/*<Text>{'\n\n'}</Text>
+      {/*<Button title='Listar Dados' onPress={listar} />
+      <Text>{'\n\n'}</Text>
       <Text>LISTA DE DADOS</Text>*/}
       <Text>{'\n'}</Text>
       <FlatList
@@ -74,12 +46,16 @@ export default (props) => {
               setMac(item.mac);
               setIdNobreak(item.id);
             }} />
-            <Button title='Deletar' onPress={() => {
-              deletar(item.id)
-            }} />
+            <Button title='Deletar'  />
             <Text>{'\n'}</Text>
           </View>
         } />
     </Container>
   )
 }
+
+// onPress={() => {
+//   deletar(item.id)
+// }}
+
+// onPress={atualizar}
