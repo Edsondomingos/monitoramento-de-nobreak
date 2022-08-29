@@ -43,7 +43,7 @@ export default (props) => {
         data={nobreak}
         renderItem={({ item }) =>
           <Botao
-            onPress={() => props.navigation.navigate('Monitoramento', { cod: item.descricao })}
+            onPress={() => props.navigation.navigate('Monitoramento', { cod: item.descricao, id: item.id })}
           >
             <TextoBtn>codigo: {item.descricao} - mac: {item.mac_esp}</TextoBtn>
 
