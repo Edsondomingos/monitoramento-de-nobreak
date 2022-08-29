@@ -13,40 +13,21 @@ export default (props) => {
     const [cpf, setCpf] = useState('')
     const [senha, setSenha] = useState('')
     const [telefone, setTelefone] = useState('')
-    const [usuarios, setUsuario] = useState([{}])
-    const [idUsuarios, setIdUsuario] = useState('')
+    // const [usuarios, setUsuario] = useState([{}])
+    // const [idUsuarios, setIdUsuario] = useState('')
 
-    async function listar() {
-        const usuariosCol = collection(db, 'usuarios');
-        const usuariosSnapshot = await getDocs(usuariosCol);
-        const usuariosList = usuariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setUsuario(usuariosList);
-    }
-    async function deletar(id_usuarios) {
-        await deleteDoc(doc(db, "usuarios", id_usuarios));
-        setNome('');
-        setTelefone('');
-        setIdUsuario('');
-        listar();
-    }
-    function atualizar() {
-        updateDoc(doc(db, 'usuarios', idUsuarios), {
-            nome: nome,
-            cpf: cpf,
-            email: email,
-            senha: senha,
-            telefone: telefone
-        }).then(() => {
-            alert("Editado");
-            props.navigation.navigate('Menu');
-        }).catch((error) => {
-            alert(error)
-        })
-        setNome('');
-        setCpf(''),
-        setTelefone('');
-        setIdUsuario('');
-        listar();
+    const EditarUser = () => {
+        firebase.auth().sendPasswordResetEmail(email)
+            .then(() => {
+                // Password reset email sent!
+                // ..
+                navigation.navigate("Menu")
+            })
+            .catch((error) => {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+                // ..
+            });
     }
 
     return (
@@ -58,52 +39,47 @@ export default (props) => {
                 value={nome} placeholder='Nome completo' onChangeText={setNome}
             />
             <Entrada value={cpf} placeholder='Digite seu CPF' onChangeText={setCpf} />
-            {/*<Entrada
+            <Entrada
                 value={email} placeholder='Digite seu email' onChangeText={setEmail}
-            /> */}
+            />
             <Entrada
                 value={telefone} placeholder='Digite o telefone' onChangeText={setTelefone}
             />
-            {/*<Entrada
+            <Entrada
                 value={senha} placeholder='Senha' onChangeText={setSenha}
                 secureTextEntry={true}
-        /> */}
+            />
             <Botao
-                onPress={atualizar}
+                onPress={EditarUser}
             >
                 <TextoBtn>Atualizar</TextoBtn>
             </Botao>
-            <Text>{'\n\n'}</Text>
-            <Button title='Dados' onPress={listar} />
-            <Text>{'\n'}</Text>
-            {/*<Text>DADOS</Text>*/}
-            <FlatList
-                // de onde vem os dados
-                data={usuarios}
-                keyExtractor={item => item.id}
-                renderItem={({ item }) =>
-                    <View>
-                        <Text>ID: {item.id}</Text>
-                        <Text>Nome: {item.nome}</Text>
-                        <Text>CPF: {item.cpf}</Text>
-                        {/*<Text>{item.email}</Text>
-                        <Text>{item.senha}</Text>*/}
-                        <Text>Celular: {item.telefone}</Text>
-
-                        <Button title='Editar' onPress={() => {
-                            setNome(item.nome);
-                            setCpf(item.cpf);
-                            setEmail(item.email);
-                            setSenha(item.senha);
-                            setTelefone(item.telefone);
-                            setIdUsuario(item.id);
-                        }} />
-                        <Button title='Deletar' onPress={() => {
-                            deletar(item.id)
-                        }} />
-                        <Text>{'\n'}</Text>
-                    </View>
-                } />
+            
         </Container>
     )
 }
+
+/* <FlatList
+    // de onde vem os dados
+    data={usuarios}
+    keyExtractor={item => item.id}
+    renderItem={({ item }) =>
+        <View>
+            <Text>ID: {item.id}</Text>
+            <Text>Nome: {item.nome}</Text>
+            <Text>CPF: {item.cpf}</Text>
+            {/*<Text>{item.email}</Text>
+            <Text>{item.senha}</Text>*/
+            // <Text>Celular: {item.telefone}</Text>
+
+        //     <Button title='Editar' onPress={() => {
+        //         setNome(item.nome);
+        //         setCpf(item.cpf);
+        //         setEmail(item.email);
+        //         setSenha(item.senha);
+        //         setTelefone(item.telefone);
+        //         setIdUsuario(item.id);
+        //     }} />
+        //     <Button title='Deletar'  />
+        // </View>
+    // } />
