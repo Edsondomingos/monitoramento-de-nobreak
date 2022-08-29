@@ -2,7 +2,7 @@ import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styled
 import { ImageBackground } from 'react-native';
 import { Button, View, Text, FlatList, TextInput } from 'react-native';
 import { doc, updateDoc, collection, getDocs, deleteDoc } from "firebase/firestore";
-import { db } from "../Config/firebaseconfig";
+import firebase from "../Config/firebaseconfig";
 import { useState } from 'react';
 
 export default (props) => {
@@ -12,7 +12,12 @@ export default (props) => {
   const [nobreak, setNobreak] = useState([{}])
   const [idNobreak, setIdNobreak] = useState('')
 
+  var cityRef = db.collection('nobreaks').doc(props.route.params.id);
 
+  var setWithMerge = cityRef.set({
+      descricao: codigo,
+      mac_esp: mac
+  }, { merge: true });
 
   return (
     <Container>
@@ -24,7 +29,7 @@ export default (props) => {
       <Entrada value={codigo} placeholder='Codigo' onChangeText={setCodigo} />
       <Entrada value={mac} placeholder='Mac' onChangeText={setMac} />
 
-      <Botao testID='btn'  >
+      <Botao testID='btn'  onPress={setWithMerge}>
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
       <Text>{'\n\n\n\n\n'}</Text>
