@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ScrollView, View, Text, FlatList, TextInput, ImageBackground, Image } from "react-native";
-import { Container, Titulo, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone, TextoComum } from "../../assets/styledComponents/Components";
+import { Container, Titulo, Botao, TextoBtn, MiniContainer, BotaoIcone, Icone, TextoComum, BotaoNobreak } from "../../assets/styledComponents/Components";
 import firebase from "../Config/firebaseconfig";
 
 export default (props) => {
@@ -35,20 +35,21 @@ export default (props) => {
     <Container >
       <TextoComum>{email}</TextoComum>
       <Titulo>Nobreaks Cadastrados</Titulo>
-      <ScrollView>
+      
       <FlatList
         data={nobreak}
         renderItem={({ item }) =>
-          <Botao
+        <ScrollView>
+          <BotaoNobreak
             onPress={() => props.navigation.navigate('Monitoramento', { cod: item.descricao, id: item.id })}
           >
-            <TextoBtn>codigo: {item.descricao} - mac: {item.mac_esp}</TextoBtn>
+            <TextoBtn>nobreak: {item.descricao + '\n'}mac: {item.mac_esp}</TextoBtn>
 
-          </Botao>
-
+          </BotaoNobreak>
+          </ScrollView>
         }
       />
-      </ScrollView>
+      
       
       <MiniContainer>
         <BotaoIcone
@@ -59,9 +60,9 @@ export default (props) => {
 
 
         <BotaoIcone
-          onPress={() => props.navigation.navigate('Cadastrar_Nobreak')}
+          onPress={() => props.navigation.navigate('Cadastrar_Nobreak',{email:props.route.params.email})}
         >
-          <Image source={require('../../img/novo3.ico')} style={{ width: 50, height: 50 }} />
+          <Image source={require('../../img/novo3.png')} style={{ width: 50, height: 50 }} />
         </BotaoIcone>
 
         <BotaoIcone onPress={Logout} >
