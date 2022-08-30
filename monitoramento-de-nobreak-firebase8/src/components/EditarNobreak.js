@@ -26,7 +26,7 @@ export default (props) => {
       descricao: codigo,
       mac_esp:mac
     })
-    props.navigation.navigate('Menu')
+    props.navigation.navigate('Menu',{email:props.route.params.email})
   }
 
   return (
@@ -42,35 +42,7 @@ export default (props) => {
       <Botao testID='btn'  onPress={EditarNobreak}>
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
-      <Text>{'\n\n\n\n\n'}</Text>
-      {/*<Button title='Listar Dados' onPress={listar} />
-      <Text>{'\n\n'}</Text>
-      <Text>LISTA DE DADOS</Text>*/}
-      <Text>{'\n'}</Text>
-      <FlatList
-        // de onde vem os dados
-        data={nobreak}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) =>
-          <View>
-            <Text>ID: {item.id}</Text>
-            <Text>Nome: {item.codigo}</Text>
-            <Text>E-mail: {item.mac}</Text>
-            <Button title='Editar' onPress={() => {
-              setCodigo(item.codigo);
-              setMac(item.mac);
-              setIdNobreak(item.id);
-            }} />
-            <Button title='Deletar'  />
-            <Text>{'\n'}</Text>
-          </View>
-        } />
+      
     </Container>
   )
 }
-
-// onPress={() => {
-//   deletar(item.id)
-// }}
-
-// onPress={atualizar}
