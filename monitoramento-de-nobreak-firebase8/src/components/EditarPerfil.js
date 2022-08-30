@@ -16,38 +16,38 @@ export default (props) => {
     const [usuarios, setUsuario] = useState([{}])
     const [idUsuarios, setIdUsuario] = useState('')
 
-    async function listar() {
-        const usuariosCol = collection(db, 'usuarios');
-        const usuariosSnapshot = await getDocs(usuariosCol);
-        const usuariosList = usuariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setUsuario(usuariosList);
-    }
-    async function deletar(id_usuarios) {
-        await deleteDoc(doc(db, "usuarios", id_usuarios));
-        setNome('');
-        setTelefone('');
-        setIdUsuario('');
-        listar();
-    }
-    function atualizar() {
-        updateDoc(doc(db, 'usuarios', idUsuarios), {
-            nome: nome,
-            cpf: cpf,
-            email: email,
-            senha: senha,
-            telefone: telefone
-        }).then(() => {
-            alert("Editado");
-            props.navigation.navigate('Menu');
-        }).catch((error) => {
-            alert(error)
-        })
-        setNome('');
-        setCpf(''),
-        setTelefone('');
-        setIdUsuario('');
-        listar();
-    }
+    // async function listar() {
+    //     const usuariosCol = collection(db, 'usuarios');
+    //     const usuariosSnapshot = await getDocs(usuariosCol);
+    //     const usuariosList = usuariosSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+    //     setUsuario(usuariosList);
+    // }
+    // async function deletar(id_usuarios) {
+    //     await deleteDoc(doc(db, "usuarios", id_usuarios));
+    //     setNome('');
+    //     setTelefone('');
+    //     setIdUsuario('');
+    //     listar();
+    // }
+    // function atualizar() {
+    //     updateDoc(doc(db, 'usuarios', idUsuarios), {
+    //         nome: nome,
+    //         cpf: cpf,
+    //         email: email,
+    //         senha: senha,
+    //         telefone: telefone
+    //     }).then(() => {
+    //         alert("Editado");
+    //         props.navigation.navigate('Menu');
+    //     }).catch((error) => {
+    //         alert(error)
+    //     })
+    //     setNome('');
+    //     setCpf(''),
+    //     setTelefone('');
+    //     setIdUsuario('');
+    //     listar();
+    // }
 
     return (
         <Container>

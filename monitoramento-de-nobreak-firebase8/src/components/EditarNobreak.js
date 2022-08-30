@@ -12,35 +12,35 @@ export default (props) => {
   const [nobreak, setNobreak] = useState([{}])
   const [idNobreak, setIdNobreak] = useState('')
 
-  async function listar() {
-    const nobreakCol = collection(db, 'nobreak');
-    const nobreakSnapshot = await getDocs(nobreakCol);
-    const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    setNobreak(nobreakList);
-  }
-  async function deletar(id_nobreak) {
-    await deleteDoc(doc(db, "nobreak", id_nobreak));
-    setCodigo('');
-    setMac('');
-    setIdNobreak('');
-    listar();
-  }
-  function atualizar() {
-    updateDoc(doc(db, 'nobreak', idNobreak), {
-      codigo: codigo,
-      mac: mac
-    }).then(() => {
-      alert("Editado");
-      props.navigation.navigate('Monitoramento');
-    }).catch((error) => {
-      alert(error)
-    })
+  // async function listar() {
+  //   const nobreakCol = collection(db, 'nobreak');
+  //   const nobreakSnapshot = await getDocs(nobreakCol);
+  //   const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  //   setNobreak(nobreakList);
+  // }
+  // async function deletar(id_nobreak) {
+  //   await deleteDoc(doc(db, "nobreak", id_nobreak));
+  //   setCodigo('');
+  //   setMac('');
+  //   setIdNobreak('');
+  //   listar();
+  // }
+  // function atualizar() {
+  //   updateDoc(doc(db, 'nobreak', idNobreak), {
+  //     codigo: codigo,
+  //     mac: mac
+  //   }).then(() => {
+  //     alert("Editado");
+  //     props.navigation.navigate('Monitoramento');
+  //   }).catch((error) => {
+  //     alert(error)
+  //   })
 
-    setCodigo('');
-    setMac('');
-    setIdNobreak('');
-    listar();
-  }
+  //   setCodigo('');
+  //   setMac('');
+  //   setIdNobreak('');
+  //   listar();
+  // }
 
   return (
     <Container>
