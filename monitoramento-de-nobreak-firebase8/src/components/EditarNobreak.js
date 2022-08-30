@@ -2,7 +2,7 @@ import { Container, Titulo, TextoBtn, Botao, Entrada } from '../../assets/styled
 import { ImageBackground } from 'react-native';
 import { Button, View, Text, FlatList, TextInput } from 'react-native';
 import { doc, updateDoc, collection, getDocs, deleteDoc } from "firebase/firestore";
-import { db } from "../Config/firebaseconfig";
+import firebase from "../Config/firebaseconfig";
 import { useState } from 'react';
 
 export default (props) => {
@@ -12,35 +12,22 @@ export default (props) => {
   const [nobreak, setNobreak] = useState([{}])
   const [idNobreak, setIdNobreak] = useState('')
 
-  // async function listar() {
-  //   const nobreakCol = collection(db, 'nobreak');
-  //   const nobreakSnapshot = await getDocs(nobreakCol);
-  //   const nobreakList = nobreakSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-  //   setNobreak(nobreakList);
-  // }
-  // async function deletar(id_nobreak) {
-  //   await deleteDoc(doc(db, "nobreak", id_nobreak));
-  //   setCodigo('');
-  //   setMac('');
-  //   setIdNobreak('');
-  //   listar();
-  // }
-  // function atualizar() {
-  //   updateDoc(doc(db, 'nobreak', idNobreak), {
-  //     codigo: codigo,
-  //     mac: mac
-  //   }).then(() => {
-  //     alert("Editado");
-  //     props.navigation.navigate('Monitoramento');
-  //   }).catch((error) => {
-  //     alert(error)
-  //   })
+  const database = firebase.firestore()
 
-  //   setCodigo('');
-  //   setMac('');
-  //   setIdNobreak('');
-  //   listar();
-  // }
+  // var cityRef = database.collection('nobreaks').doc(props.route.params.id);
+
+  // var setWithMerge = cityRef.set({
+  //     descricao: codigo,
+  //     mac_esp: mac
+  // }, { merge: true });
+
+  function EditarNobreak(){
+    database.collection('nobreaks').doc(props.route.params.id).update({
+      descricao: codigo,
+      mac_esp:mac
+    })
+    props.navigation.navigate('Menu')
+  }
 
   return (
     <Container>
@@ -52,7 +39,7 @@ export default (props) => {
       <Entrada value={codigo} placeholder='Codigo' onChangeText={setCodigo} />
       <Entrada value={mac} placeholder='Mac' onChangeText={setMac} />
 
-      <Botao testID='btn'  >
+      <Botao testID='btn'  onPress={EditarNobreak}>
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
       <Text>{'\n\n\n\n\n'}</Text>
