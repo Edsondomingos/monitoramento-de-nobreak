@@ -1,7 +1,6 @@
 import styled from 'styled-components/native'
 
 export const Container = styled.View`
-    // height: 100%;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -15,8 +14,6 @@ export const MiniContainer = styled.View`
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    // background-color: #fff;
-    // background-color: #000;
     width: 100%;
 `;
 
@@ -40,7 +37,7 @@ export const Titulo = styled.Text`
 
 export const TextoComum = styled.Text`
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 17px;
     color: #000;
     margin: 10px 0;
 `;
@@ -75,13 +72,23 @@ export const Botao = styled.TouchableHighlight`
     align-items: center;
 `;
 
+export const BotaoNobreak = styled.TouchableHighlight`
+    
+    border-radius: 10px;
+    width: 250px;
+    height: 70px;
+    margin: 10px 10px;
+    background-color: #70abff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`;
+
 export const BotaoIcone = styled.TouchableHighlight`
-    // border: 1px solid #000;
     border-radius: 10px;
     width: 30%;
     height: 50px;
     margin: 0 auto;
-    // background-color: #4763ff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,8 +102,7 @@ export const Icone = styled.ImageBackground`
 export const LigaDesliga = styled.TouchableHighlight`
     width: 90%;
     height: 90%;
-    borderWidth: 1;
-    borderRadius: 100;
+    borderRadius: 100px;
     backgroundColor: #7f7;
     margin: auto;
     display: flex;
