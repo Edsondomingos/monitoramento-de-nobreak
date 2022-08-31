@@ -32,7 +32,7 @@ export default (props) => {
             <Titulo>Login</Titulo>
             
             <Entrada 
-                placeholder='Digite seu email' 
+                placeholder='Digite seu email'
                 onChangeText={setEmail}
                 value={email}
             />

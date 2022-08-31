@@ -52,12 +52,12 @@ export default (props) => {
       <Entrada value={codigo} placeholder='Codigo' onChangeText={setCodigo} />
       <Entrada value={mac} placeholder='Mac' onChangeText={setMac} />
 
-      <Botao testID='btn' onPress={atualizar} >
+      <Botao testID='btn'  >
         <TextoBtn>Atualizar</TextoBtn>
       </Botao>
       <Text>{'\n\n\n\n\n'}</Text>
-      <Button title='Listar Dados' onPress={listar} />
-      {/*<Text>{'\n\n'}</Text>
+      {/*<Button title='Listar Dados' onPress={listar} />
+      <Text>{'\n\n'}</Text>
       <Text>LISTA DE DADOS</Text>*/}
       <Text>{'\n'}</Text>
       <FlatList
@@ -74,12 +74,16 @@ export default (props) => {
               setMac(item.mac);
               setIdNobreak(item.id);
             }} />
-            <Button title='Deletar' onPress={() => {
-              deletar(item.id)
-            }} />
+            <Button title='Deletar'  />
             <Text>{'\n'}</Text>
           </View>
         } />
     </Container>
   )
 }
+
+// onPress={() => {
+//   deletar(item.id)
+// }}
+
+// onPress={atualizar}

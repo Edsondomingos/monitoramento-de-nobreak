@@ -14,13 +14,13 @@ export default function Monitoramento(props) {
     <Container>
       
   
-      <Titulo></Titulo>
+      <Titulo>{props.route.params.cod}</Titulo>
 
       <App />     
 
       
       <Botao
-        onPress={() => props.navigation.navigate('EditarNobreak')}
+        onPress={() => props.navigation.navigate('EditarNobreak', {id: props.route.params.id})}
       >
         <TextoBtn>Editar nobreak</TextoBtn>
       </Botao>

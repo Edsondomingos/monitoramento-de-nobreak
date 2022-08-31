@@ -69,12 +69,12 @@ export default (props) => {
                 secureTextEntry={true}
         /> */}
             <Botao
-                onPress={atualizar}
+                onPress={() => console('atualizar')}
             >
                 <TextoBtn>Atualizar</TextoBtn>
             </Botao>
             <Text>{'\n\n'}</Text>
-            <Button title='Dados' onPress={listar} />
+            <Button title='Dados' onPress={() => console('listar')} />
             <Text>{'\n'}</Text>
             {/*<Text>DADOS</Text>*/}
             <FlatList
@@ -98,12 +98,14 @@ export default (props) => {
                             setTelefone(item.telefone);
                             setIdUsuario(item.id);
                         }} />
-                        <Button title='Deletar' onPress={() => {
-                            deletar(item.id)
-                        }} />
+                        <Button title='Deletar'  />
                         <Text>{'\n'}</Text>
                     </View>
                 } />
         </Container>
     )
 }
+
+// onPress={() => {
+//     deletar(item.id)
+// }}

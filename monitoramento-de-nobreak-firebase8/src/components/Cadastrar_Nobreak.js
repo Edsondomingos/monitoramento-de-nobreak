@@ -36,7 +36,7 @@ export default (props) => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastrarno} >
+      <Botao testID='btn'  >
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 
@@ -44,3 +44,5 @@ export default (props) => {
     </Container>
   )
 }
+
+// onPress={cadastrarno}

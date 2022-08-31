@@ -3,30 +3,22 @@ import { ImageBackground } from "react-native";
 import { useState } from 'react';
 import { Container, Titulo, Entrada, Botao, TextoBtn } from "../../assets/styledComponents/Components";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../Config/firebaseconfig";
+import firebase from "../Config/firebaseconfig";
 
 export default (props) => {
 
   const [codigo, setCodigo] = useState('');
   const [mac, setMac] = useState('');
 
-  function cadastrarno(){
-    //setDoc(doc(db, "contatos", "LA"), {
-    //await addDoc(collection(db, "contatos"), {
-    addDoc(collection(db, 'nobreak'), {
-        codigo: codigo,
-        mac: mac,
-      }).then(() => {
-        alert("Cadastrado com sucesso");
+  const database = firebase.firestore();
 
-        props.navigation.navigate('Menu');
-      }).catch((error) => {
-        alert(error)
-      })
-
-      setCodigo('');
-      setMac('');
-}
+  function addNobreak(){
+    database.collection('nobreaks').add({
+      descricao: codigo,
+      mac_esp: mac
+    })
+    props.navigation.navigate("Menu");
+  }
 
   return (
     <Container>
@@ -36,7 +28,7 @@ export default (props) => {
       <Entrada placeholder="Codigo/Modelo" onChangeText={setCodigo} />
       <Entrada placeholder="Endereço MAC" onChangeText={setMac} />
       
-      <Botao testID='btn' onPress={cadastrarno} >
+      <Botao testID='btn' onPress={addNobreak}>
         <TextoBtn>Cadastrar</TextoBtn>
       </Botao>
 

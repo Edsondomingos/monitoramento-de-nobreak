@@ -86,7 +86,7 @@ export default (props) => {
             />
             <Botao
                 testID='btnCriar'
-                onPress={cadastrarusu}
+                
             >
                 <TextoBtn>Criar Conta</TextoBtn>
             </Botao>
@@ -94,3 +94,4 @@ export default (props) => {
         </Container>
     )
 }
+// onPress={cadastrarusu}
