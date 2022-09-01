@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "projetointegrador2",
-    "slug": "snack-f3c2cbe7-48f3-47ef-a04c-95bbde8bedb0",
+    "name": "monitora-nobreak",
+    "slug": "monitoranobreak",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -24,10 +24,15 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.edson.domingos.snackf3c2cbe748f347efa04c95bbde8bedb0"
+      "package": "com.edson.domingos.monitora_nobreak"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b6fe9e79-e5c3-4784-989f-028b2e6d2950"
+      }
     }
   }
 }
